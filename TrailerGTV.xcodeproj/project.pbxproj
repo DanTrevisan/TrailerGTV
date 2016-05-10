@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		657F932B1CE20E6300C5C87B /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F932A1CE20E6300C5C87B /* GameService.swift */; };
 		65C37DD21CD778D20085CED8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DD11CD778D20085CED8 /* AppDelegate.swift */; };
 		65C37DD41CD778D20085CED8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DD31CD778D20085CED8 /* ViewController.swift */; };
 		65C37DD71CD778D20085CED8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C37DD51CD778D20085CED8 /* Main.storyboard */; };
 		65C37DD91CD778D30085CED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C37DD81CD778D30085CED8 /* Assets.xcassets */; };
+		65C37DE31CD780AA0085CED8 /* GameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DE21CD780AA0085CED8 /* GameDetail.swift */; };
+		65C37DE51CD781880085CED8 /* GameCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DE41CD781880085CED8 /* GameCollectionViewController.swift */; };
+		65C37DE71CD782010085CED8 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DE61CD782010085CED8 /* VideoViewController.swift */; };
+		65C37DE91CD789680085CED8 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DE81CD789680085CED8 /* GameCollectionViewCell.swift */; };
+		65C37DEB1CD796350085CED8 /* ssb4trailer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 65C37DEA1CD796350085CED8 /* ssb4trailer.mp4 */; };
+		65C37DED1CD79A140085CED8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DEC1CD79A140085CED8 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		657F932A1CE20E6300C5C87B /* GameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		65C37DCE1CD778D20085CED8 /* TrailerGTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailerGTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C37DD11CD778D20085CED8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65C37DD31CD778D20085CED8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		65C37DD61CD778D20085CED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65C37DD81CD778D30085CED8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65C37DDA1CD778D30085CED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65C37DE21CD780AA0085CED8 /* GameDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameDetail.swift; path = ../GameDetail.swift; sourceTree = "<group>"; };
+		65C37DE41CD781880085CED8 /* GameCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionViewController.swift; sourceTree = "<group>"; };
+		65C37DE61CD782010085CED8 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		65C37DE81CD789680085CED8 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
+		65C37DEA1CD796350085CED8 /* ssb4trailer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ssb4trailer.mp4; sourceTree = "<group>"; };
+		65C37DEC1CD79A140085CED8 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +66,18 @@
 		65C37DD01CD778D20085CED8 /* TrailerGTV */ = {
 			isa = PBXGroup;
 			children = (
+				65C37DE21CD780AA0085CED8 /* GameDetail.swift */,
+				65C37DEC1CD79A140085CED8 /* Game.swift */,
+				657F932A1CE20E6300C5C87B /* GameService.swift */,
+				65C37DE41CD781880085CED8 /* GameCollectionViewController.swift */,
+				65C37DE81CD789680085CED8 /* GameCollectionViewCell.swift */,
 				65C37DD11CD778D20085CED8 /* AppDelegate.swift */,
 				65C37DD31CD778D20085CED8 /* ViewController.swift */,
 				65C37DD51CD778D20085CED8 /* Main.storyboard */,
 				65C37DD81CD778D30085CED8 /* Assets.xcassets */,
+				65C37DEA1CD796350085CED8 /* ssb4trailer.mp4 */,
 				65C37DDA1CD778D30085CED8 /* Info.plist */,
+				65C37DE61CD782010085CED8 /* VideoViewController.swift */,
 			);
 			path = TrailerGTV;
 			sourceTree = "<group>";
@@ -122,6 +143,7 @@
 			files = (
 				65C37DD91CD778D30085CED8 /* Assets.xcassets in Resources */,
 				65C37DD71CD778D20085CED8 /* Main.storyboard in Resources */,
+				65C37DEB1CD796350085CED8 /* ssb4trailer.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +155,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C37DD41CD778D20085CED8 /* ViewController.swift in Sources */,
+				65C37DE31CD780AA0085CED8 /* GameDetail.swift in Sources */,
+				65C37DED1CD79A140085CED8 /* Game.swift in Sources */,
+				65C37DE91CD789680085CED8 /* GameCollectionViewCell.swift in Sources */,
+				65C37DE51CD781880085CED8 /* GameCollectionViewController.swift in Sources */,
+				65C37DE71CD782010085CED8 /* VideoViewController.swift in Sources */,
 				65C37DD21CD778D20085CED8 /* AppDelegate.swift in Sources */,
+				657F932B1CE20E6300C5C87B /* GameService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +305,7 @@
 				65C37DDF1CD778D30085CED8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
