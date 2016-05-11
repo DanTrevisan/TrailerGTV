@@ -22,6 +22,14 @@ class GameCollectionViewController: UICollectionViewController {
         blurEffectView.frame = view.bounds
         backgroundImage.addSubview(blurEffectView)
         
+        tabBarController?.tabBar.items![0].title = "Destaques"
+        tabBarController?.tabBar.items![1].title = "Categorias"
+        tabBarController?.tabBar.items![2].title = "Busca"
+        tabBarController?.tabBar.items![3].title = "Lista de Desejos"
+
+
+        
+
         self.setupExemplos()
         super.viewDidLoad()
         backgroundImage.image = UIImage(named: games[0].imageURL)
@@ -45,8 +53,8 @@ class GameCollectionViewController: UICollectionViewController {
         
         let game3:Game = Game.init(title: "Splatoon", imageURL: "splatoon")!
         games.append(game3)
-        
-        
+
+
         
         
     }
@@ -83,6 +91,15 @@ class GameCollectionViewController: UICollectionViewController {
 
         }
         
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue,
+                                  sender: AnyObject?) {
+        // 1, 2
+        if let destinationViewController = segue.destinationViewController as?
+            GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
+            // 3
+            destinationViewController.game = games[selectedIndex.item]
+        }
     }
 
 

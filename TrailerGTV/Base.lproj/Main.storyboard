@@ -311,6 +311,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="Ev9-eY-bd5" kind="relationship" relationship="viewControllers" id="crn-9Y-FIA"/>
+                        <segue destination="Ev9-eY-bd5" kind="relationship" relationship="viewControllers" id="owA-mI-Cwh"/>
+                        <segue destination="Ev9-eY-bd5" kind="relationship" relationship="viewControllers" id="n0H-Pg-rgq"/>
+                        <segue destination="Ev9-eY-bd5" kind="relationship" relationship="viewControllers" id="Tdp-hP-wwg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxD-9v-lqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -318,4 +321,7 @@
             <point key="canvasLocation" x="4636" y="2441"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="owA-mI-Cwh"/>
+    </inferredMetricsTieBreakers>
 </document>

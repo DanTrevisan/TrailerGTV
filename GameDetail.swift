@@ -48,22 +48,32 @@ class GameDetail: UIViewController {
             player.play()
         }
     }
+    
+    
 
 }
 private extension GameDetail{
     func setDetail(){
         
+        if let game = game{
+            gameName.text = game.title
+            backgroundImage.image = UIImage(named: game.imageURL)
+            imageView.image = backgroundImage.image
+        }
+        
+        else{
         //TO DO: Dar setup propriamente nesses dados, pra deixas as informações dinâmicas, de acordo com a GameCollection
         
-        gameName.text = "Super Smash Bros. for Wii U"
-        gameDesc.text = "Nintendo All-stars in a all-out fighting game"
-        gameGenre.text = "Fighting"
-        numPlayers.text = "1-8 players"
-        nameDevelop.text = "Nintendo"
-        namePlatform.text = "Wii U"
-        releaseDate.text = "30/12/2014"
-        imageView.image = UIImage(named: "smashwiiu")
-        backgroundImage.image = imageView.image
+            gameName.text = "Super Smash Bros. for Wii U"
+            gameDesc.text = "Nintendo All-stars in a all-out fighting game"
+            gameGenre.text = "Fighting"
+            numPlayers.text = "1-8 players"
+            nameDevelop.text = "Nintendo"
+            namePlatform.text = "Wii U"
+            releaseDate.text = "30/12/2014"
+            imageView.image = UIImage(named: "smashwiiu")
+            backgroundImage.image = imageView.image
+        }
 
     }
     @IBAction func startTrailer(sender: AnyObject) {
