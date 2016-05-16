@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CFE29641CEA0C3100DAA6B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE29631CEA0C3100DAA6B2 /* LoginViewController.swift */; };
 		657F932B1CE20E6300C5C87B /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F932A1CE20E6300C5C87B /* GameService.swift */; };
 		65B7CB661CE9FBBF00A8D319 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7CB651CE9FBBF00A8D319 /* User.swift */; };
 		65C37DD21CD778D20085CED8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DD11CD778D20085CED8 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5CFE29631CEA0C3100DAA6B2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		657F932A1CE20E6300C5C87B /* GameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		65B7CB651CE9FBBF00A8D319 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		65C37DCE1CD778D20085CED8 /* TrailerGTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailerGTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,7 @@
 				65C37DE81CD789680085CED8 /* GameCollectionViewCell.swift */,
 				65C37DD11CD778D20085CED8 /* AppDelegate.swift */,
 				65C37DD31CD778D20085CED8 /* ViewController.swift */,
+				5CFE29631CEA0C3100DAA6B2 /* LoginViewController.swift */,
 				65C37DD51CD778D20085CED8 /* Main.storyboard */,
 				65C37DD81CD778D30085CED8 /* Assets.xcassets */,
 				65C37DEA1CD796350085CED8 /* ssb4trailer.mp4 */,
@@ -165,6 +168,7 @@
 				65B7CB661CE9FBBF00A8D319 /* User.swift in Sources */,
 				65C37DE71CD782010085CED8 /* VideoViewController.swift in Sources */,
 				65C37DD21CD778D20085CED8 /* AppDelegate.swift in Sources */,
+				5CFE29641CEA0C3100DAA6B2 /* LoginViewController.swift in Sources */,
 				657F932B1CE20E6300C5C87B /* GameService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
