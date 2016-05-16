@@ -230,18 +230,18 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="I66-7b-Nxq">
                                                 <rect key="frame" x="0.0" y="541" width="1035" height="86"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdt-Zg-2aa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="468" height="86"/>
-                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                        <state key="normal" title="Add To Wish List"/>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZq-wv-4MS">
-                                                        <rect key="frame" x="568" y="0.0" width="467" height="86"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="468" height="86"/>
                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                         <state key="normal" title="Watch Trailer"/>
                                                         <connections>
                                                             <action selector="startTrailer:" destination="dYm-YC-mKg" eventType="primaryActionTriggered" id="3yy-qK-6uc"/>
                                                         </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdt-Zg-2aa">
+                                                        <rect key="frame" x="568" y="0.0" width="467" height="86"/>
+                                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                        <state key="normal" title="Add To Wish List"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
