@@ -10,12 +10,15 @@ import Foundation
 
 struct Game{
     var title: String
-//    var descripion: String
-//    var genre: String
-//    var numPlayer: String
-//    var nameDevelop: String
-//    var namePlatform: String
-//    var releaseDate: String
+    var description: String
+    var trailers: [String]
+    var distribuidora: String
+    var desenvolvedora: String
+    var plataformas: [String]
+    var genero: String
+    var rank: String
+    var faixaetaria: String
+    var releaseDate: NSDate
     var imageURL: String
     
     init?(title: String, imageURL: String) {
@@ -24,13 +27,19 @@ struct Game{
 //        }
         
         self.title = title
-//        self.descripion = descripion
-//        self.genre = genre
+        self.description = "descricao"
+        self.trailers = [String]()
+        trailers.append("ssb4trailer")
+        self.distribuidora = "Distri"
+        self.desenvolvedora = "Desenvolv"
+        self.plataformas = [String]()
+        self.plataformas.append("meme")
+        self.genero = "not game"
+        self.rank = "0 estrelas"
+        self.faixaetaria = "PG13"
+        self.releaseDate = NSDate.init(timeIntervalSinceNow: 0)
         self.imageURL = imageURL
-//        self.numPlayer = numPlayer
-//        self.nameDevelop = nameDevelop
-//        self.namePlatform = namePlatform
-//        self.releaseDate = releaseDate
+
         
     }
 }
