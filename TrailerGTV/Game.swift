@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Game{
     var title: String
@@ -25,6 +26,7 @@ struct Game{
 //        guard let title = dictionary["title"] as? String, descripion = dictionary["description"] as? String, genre = dictionary["genre"] as? String, imageURL = dictionary["imageURL"] as? String, numPlayer = dictionary["numPlayer"]as? String, nameDevelop = dictionary["nameDevelop"]as? String, namePlatform = dictionary["numPlatform"]as? String, releaseDate = dictionary["releaseDate"]as? String else {
 //            return nil
 //        }
+        
         
         self.title = title
         self.description = "descricao"
