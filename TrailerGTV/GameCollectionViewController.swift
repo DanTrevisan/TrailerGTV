@@ -13,6 +13,7 @@ class GameCollectionViewController: UICollectionViewController {
     private let detailSegueIdentifier = "DetailSegue"
     var gameManager = GameService.sharedInstance
     private let reuseIdentifier = "GameCell"
+    let jParser : JsonParser = JsonParser.init()
 
     @IBOutlet weak var backgroundImage: UIImageView!
 
@@ -47,20 +48,7 @@ class GameCollectionViewController: UICollectionViewController {
     }
     
     func setupExemplos(){
-        let jparser = JsonParser.init()
 
-//        let game1:Game = Game.init(title: "Super Smash Bros. for Wii U",imageURL: "smashwiiu")!
-//        games.append(game1)
-//        
-//        let game2:Game = Game.init(title: "The Legend of Zelda: the Wind Waker", imageURL: "winwaker")!
-//        games.append(game2)
-//        
-//        let game3:Game = Game.init(title: "Splatoon", imageURL: "splatoon")!
-//        games.append(game3)
-
-
-        
-        
     }
 
     
@@ -103,8 +91,13 @@ class GameCollectionViewController: UICollectionViewController {
         // 1, 2
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
+            jParser.fetchGameData(selectedIndex.item)
+            print(selectedIndex.item)
+            print(gameManager.games[selectedIndex.item].description)
             // 3
             destinationViewController.game = gameManager.games[selectedIndex.item]
+            print(destinationViewController.game?.description)
+
         }
     }
 

@@ -44,5 +44,16 @@ struct Game{
 
         
     }
+    mutating func setDetailInfo(desc: String, trailers: [String], distri: String, desenv: String, platf: [String], genero: String, rank: String, faixaetaria: String){
+        self.description = desc
+        self.desenvolvedora = desenv
+        self.distribuidora = distri
+        self.plataformas = platf
+        self.genero = genero
+        self.rank = rank
+        self.faixaetaria = faixaetaria
+        
+    
+    }
 }
 

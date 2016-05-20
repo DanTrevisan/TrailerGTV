@@ -20,20 +20,20 @@ extension Dictionary {
                 let data = try NSData(contentsOfFile: path, options: NSDataReadingOptions()) as NSData!
                 dataOK = data
             }catch {
-                print("Could not load level file: \(filename), error: \(error)")
+                print("Could not load file: \(filename), error: \(error)")
                 return nil
             }
             do {
                 let dictionary = try NSJSONSerialization.JSONObjectWithData(dataOK, options: NSJSONReadingOptions()) as AnyObject!
                 dictionaryOK = (dictionary as! NSDictionary as? Dictionary < String, AnyObject>)!
             }catch {
-                print("Level file '\(filename)' is not valid JSON: \(error)")
+                print("File '\(filename)' is not valid JSON: \(error)")
                 return nil
             }
             
         }
         else{
-            print("Level file '\(filename)' not found!")
+            print("File '\(filename)' not found!")
         }
         return dictionaryOK as? Dictionary < String, AnyObject>
     }
