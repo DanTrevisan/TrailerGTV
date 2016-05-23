@@ -24,6 +24,7 @@
 		65C790D31CECA0DB002B95D0 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D21CECA0DB002B95D0 /* JsonParser.swift */; };
 		65C790D61CECA2FA002B95D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D51CECA2FA002B95D0 /* Extensions.swift */; };
 		65C790D81CECC135002B95D0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D71CECC135002B95D0 /* ImageLoader.swift */; };
+		65C790DA1CF34E04002B95D0 /* MoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D91CF34E04002B95D0 /* MoreDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		65C790D21CECA0DB002B95D0 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		65C790D51CECA2FA002B95D0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		65C790D71CECC135002B95D0 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		65C790D91CF34E04002B95D0 /* MoreDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				65C37DE21CD780AA0085CED8 /* GameDetail.swift */,
+				65C790D91CF34E04002B95D0 /* MoreDetail.swift */,
 				65C37DEC1CD79A140085CED8 /* Game.swift */,
 				65B7CB651CE9FBBF00A8D319 /* User.swift */,
 				65C790D41CECA22D002B95D0 /* JSON */,
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C37DD41CD778D20085CED8 /* ViewController.swift in Sources */,
+				65C790DA1CF34E04002B95D0 /* MoreDetail.swift in Sources */,
 				65C37DE31CD780AA0085CED8 /* GameDetail.swift in Sources */,
 				65C37DED1CD79A140085CED8 /* Game.swift in Sources */,
 				65C37DE91CD789680085CED8 /* GameCollectionViewCell.swift in Sources */,

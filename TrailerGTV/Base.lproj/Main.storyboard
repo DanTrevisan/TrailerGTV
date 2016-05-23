@@ -267,7 +267,7 @@
         <!--MoreDetails-->
         <scene sceneID="acU-bP-tdV">
             <objects>
-                <viewController title="MoreDetails" id="ufb-aq-KEr" sceneMemberID="viewController">
+                <viewController title="MoreDetails" id="ufb-aq-KEr" customClass="MoreDetail" customModule="TrailerGTV" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RKv-9E-KXc"/>
                         <viewControllerLayoutGuide type="bottom" id="bB2-U9-7yc"/>
@@ -399,6 +399,16 @@
                             <constraint firstItem="QRh-Cu-uy7" firstAttribute="top" secondItem="RKv-9E-KXc" secondAttribute="bottom" constant="60" id="iQz-TX-kbK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameDescription" destination="4Pd-pY-Bkg" id="8uk-kt-BFZ"/>
+                        <outlet property="gameDeveloper" destination="Iho-lW-F7T" id="9ef-mO-fI5"/>
+                        <outlet property="gameGenres" destination="ape-pf-kXO" id="ZWL-XC-jMk"/>
+                        <outlet property="gameName" destination="Ni8-Yr-q5H" id="f73-DS-wx1"/>
+                        <outlet property="gamePlatforms" destination="thV-8K-fh7" id="Uzr-np-wCw"/>
+                        <outlet property="gamePublisher" destination="NYw-5q-gSK" id="NPt-WO-dIZ"/>
+                        <outlet property="gameRating" destination="NNa-NZ-gz0" id="ffr-jX-MCR"/>
+                        <outlet property="gameReleaseDate" destination="vt6-cM-YIn" id="VHC-0Y-ibP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Smr-4d-HAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

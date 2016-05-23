@@ -94,16 +94,20 @@ class JsonParser{
                 //PUBLISHERS
                 let publishers = dict2["publishers"] as? NSArray
                 var publishersArray = [String]()
-                for dictionaries in publishers!{
-                    let publishersName = dictionaries["name"] as? String
-                    publishersArray.append(publishersName!)
+                if publishers != nil {
+                    for dictionaries in publishers!{
+                        let publishersName = dictionaries["name"] as? String
+                        publishersArray.append(publishersName!)
+                    }
                 }
                 //DEVELOPERS
                 let developers = dict2["developers"] as? NSArray
                 var developersArray = [String]()
-                for dictionaries in developers!{
-                    let developersName = dictionaries["name"] as? String
-                    developersArray.append(developersName!)
+                if developers != nil {
+                    for dictionaries in developers!{
+                        let developersName = dictionaries["name"] as? String
+                        developersArray.append(developersName!)
+                    }
                 }
                 gameManager.games[gameindex].setDetailInfo  (desc!, trailers: platformArray, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: "teste")
                         
