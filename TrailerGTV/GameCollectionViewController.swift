@@ -92,11 +92,8 @@ class GameCollectionViewController: UICollectionViewController {
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
             jParser.fetchGameData(selectedIndex.item)
-            print(selectedIndex.item)
-            print(gameManager.games[selectedIndex.item].description)
             // 3
             destinationViewController.game = gameManager.games[selectedIndex.item]
-            print(destinationViewController.game?.description)
 
         }
     }
