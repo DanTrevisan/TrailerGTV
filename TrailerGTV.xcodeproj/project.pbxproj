@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C6ADE9B1CEDF7C200150FD1 /* UsuarioWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */; };
+		5C8D92AE1CEF2EB400B0E6D6 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */; };
+		5C8D92B11CEF3D4F00B0E6D6 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92B01CEF3D4F00B0E6D6 /* UserViewController.swift */; };
+		5C8D92B51CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92B31CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld */; };
 		5CFE29641CEA0C3100DAA6B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE29631CEA0C3100DAA6B2 /* LoginViewController.swift */; };
 		657F932B1CE20E6300C5C87B /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F932A1CE20E6300C5C87B /* GameService.swift */; };
 		65B7CB661CE9FBBF00A8D319 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7CB651CE9FBBF00A8D319 /* User.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioWorker.swift; sourceTree = "<group>"; };
+		5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
+		5C8D92B01CEF3D4F00B0E6D6 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		5C8D92B41CEF430E00B0E6D6 /* TrailerGTV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrailerGTV.xcdatamodel; sourceTree = "<group>"; };
 		5CFE29631CEA0C3100DAA6B2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		657F932A1CE20E6300C5C87B /* GameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		65B7CB651CE9FBBF00A8D319 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -51,6 +59,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C8D92AF1CEF2F5C00B0E6D6 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */,
+				5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */,
+			);
+			name = Workers;
+			sourceTree = "<group>";
+		};
+		5C8D92B21CEF3D5500B0E6D6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C8D92B01CEF3D4F00B0E6D6 /* UserViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		65C37DC51CD778D20085CED8 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +95,8 @@
 		65C37DD01CD778D20085CED8 /* TrailerGTV */ = {
 			isa = PBXGroup;
 			children = (
+				5C8D92B21CEF3D5500B0E6D6 /* ViewControllers */,
+				5C8D92AF1CEF2F5C00B0E6D6 /* Workers */,
 				65C37DE21CD780AA0085CED8 /* GameDetail.swift */,
 				65C37DEC1CD79A140085CED8 /* Game.swift */,
 				65B7CB651CE9FBBF00A8D319 /* User.swift */,
@@ -83,6 +110,7 @@
 				65C37DD81CD778D30085CED8 /* Assets.xcassets */,
 				65C37DEA1CD796350085CED8 /* ssb4trailer.mp4 */,
 				65C37DDA1CD778D30085CED8 /* Info.plist */,
+				5C8D92B31CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld */,
 				65C37DE61CD782010085CED8 /* VideoViewController.swift */,
 			);
 			path = TrailerGTV;
@@ -162,6 +190,10 @@
 			files = (
 				65C37DD41CD778D20085CED8 /* ViewController.swift in Sources */,
 				65C37DE31CD780AA0085CED8 /* GameDetail.swift in Sources */,
+				5C8D92B11CEF3D4F00B0E6D6 /* UserViewController.swift in Sources */,
+				5C8D92B51CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld in Sources */,
+				5C6ADE9B1CEDF7C200150FD1 /* UsuarioWorker.swift in Sources */,
+				5C8D92AE1CEF2EB400B0E6D6 /* CoreDataWorker.swift in Sources */,
 				65C37DED1CD79A140085CED8 /* Game.swift in Sources */,
 				65C37DE91CD789680085CED8 /* GameCollectionViewCell.swift in Sources */,
 				65C37DE51CD781880085CED8 /* GameCollectionViewController.swift in Sources */,
@@ -316,6 +348,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5C8D92B31CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5C8D92B41CEF430E00B0E6D6 /* TrailerGTV.xcdatamodel */,
+			);
+			currentVersion = 5C8D92B41CEF430E00B0E6D6 /* TrailerGTV.xcdatamodel */;
+			path = TrailerGTV.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 65C37DC61CD778D20085CED8 /* Project object */;
 }
