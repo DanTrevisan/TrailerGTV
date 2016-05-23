@@ -11,8 +11,9 @@ import UIKit
 class GameCollectionViewController: UICollectionViewController {
     
     private let detailSegueIdentifier = "DetailSegue"
-    var games = [Game]()
+    var gameManager = GameService.sharedInstance
     private let reuseIdentifier = "GameCell"
+    let jParser : JsonParser = JsonParser.init()
 
     @IBOutlet weak var backgroundImage: UIImageView!
 
@@ -21,6 +22,8 @@ class GameCollectionViewController: UICollectionViewController {
         var blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         backgroundImage.addSubview(blurEffectView)
+        
+
         
         tabBarController?.tabBar.items![0].title = "Destaques"
         tabBarController?.tabBar.items![1].title = "Categorias"
@@ -32,7 +35,7 @@ class GameCollectionViewController: UICollectionViewController {
 
         self.setupExemplos()
         super.viewDidLoad()
-        backgroundImage.image = UIImage(named: games[0].imageURL)
+        backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
         
     
 
@@ -45,18 +48,7 @@ class GameCollectionViewController: UICollectionViewController {
     }
     
     func setupExemplos(){
-        let game1:Game = Game.init(title: "Super Smash Bros. for Wii U",imageURL: "smashwiiu")!
-        games.append(game1)
-        
-        let game2:Game = Game.init(title: "The Legend of Zelda: the Wind Waker", imageURL: "winwaker")!
-        games.append(game2)
-        
-        let game3:Game = Game.init(title: "Splatoon", imageURL: "splatoon")!
-        games.append(game3)
 
-
-        
-        
     }
 
     
@@ -69,16 +61,18 @@ class GameCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(games.count)
-        return games.count
+        print(gameManager.games.count)
+        return gameManager.games.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
         
-        
-        cell.gameImage.image = UIImage(named: games[indexPath.row].imageURL)
-        cell.gameName.text = games[indexPath.row].title
+        ImageLoader.sharedLoader.imageForUrl(gameManager.games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
+            cell.gameImage.image = image
+        })
+        //cell.gameImage.image = UIImage(named: gameManager.games[indexPath.row].imageURL)
+        cell.gameName.text = gameManager.games[indexPath.row].title
     
         // Configure the cell
     
@@ -87,7 +81,7 @@ class GameCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         if (context.nextFocusedIndexPath != nil){
-            backgroundImage.image = UIImage(named: games[(context.nextFocusedIndexPath?.row)!].imageURL)
+            backgroundImage.image = UIImage(named: gameManager.games[(context.nextFocusedIndexPath?.row)!].imageURL)
 
         }
         
@@ -97,8 +91,10 @@ class GameCollectionViewController: UICollectionViewController {
         // 1, 2
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
+            jParser.fetchGameData(selectedIndex.item)
             // 3
-            destinationViewController.game = games[selectedIndex.item]
+            destinationViewController.game = gameManager.games[selectedIndex.item]
+
         }
     }
 
