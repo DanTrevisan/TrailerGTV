@@ -10,7 +10,7 @@ import UIKit
 
 class GameCollectionViewController: UICollectionViewController {
     
-    private let detailSegueIdentifier = "DetailSegue"
+    private let detailSegueIdentifier = "DestaquesDetail"
     var gameManager = GameService.sharedInstance
     private let reuseIdentifier = "GameCell"
     let jParser : JsonParser = JsonParser.init()

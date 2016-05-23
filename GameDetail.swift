@@ -67,7 +67,7 @@ private extension GameDetail{
             gameDesc.text = game.description
             namePlatform.text = game.plataformas.joinWithSeparator(", ")
             gameGenre.text = game.genero.joinWithSeparator(", ")
-            nameDevelop.text = game.desenvolvedoras.joinWithSeparator(", ")
+            //nameDevelop.text = game.desenvolvedoras.joinWithSeparator(", ")
             
             
         }
