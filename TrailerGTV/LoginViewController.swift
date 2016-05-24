@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cdWorker = CoreDataWorker()
-        users = cdWorker.users()
+        users = cdWorker.usersArray
 
         // Do any additional setup after loading the view.
     }
@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
     }
     
     func novoUsuario(name: NSString){
-        cdWorker.saveUsuario(name as String)
+        cdWorker.addUser(name as String)
 //        colecao.reloadData()
         
     }

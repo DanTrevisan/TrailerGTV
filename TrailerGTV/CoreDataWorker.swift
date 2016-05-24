@@ -13,30 +13,41 @@ import UIKit
 import CoreData
 
 class CoreDataWorker {
-    let appDelegate =
-        UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    let usersArray = NSMutableArray()
+    private var actualUser = NSManagedObject()
     
   // MARK: Business Logic
-    func saveUsuario(name: String){
-        
+    func selectUser(user:NSManagedObject){
+        actualUser = user
+    }
+    
+    //create a new user
+    func addUser(name: String) {
         let managedContext = appDelegate.managedObjectContext
         
         
-        let entity =  NSEntityDescription.entityForName("User",
-                                                        inManagedObjectContext:managedContext)
+        let entity =  NSEntityDescription.entityForName("User", inManagedObjectContext:managedContext)
         
-        let user = NSManagedObject(entity: entity!,
-                                     insertIntoManagedObjectContext: managedContext)
-        
+        let user = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         user.setValue(name, forKey: "name")
         
+        self.save(managedContext)
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
+        usersArray.addObject(user)
+        
+        //
+        let entityWish =  NSEntityDescription.entityForName("WishList", inManagedObjectContext:managedContext)
+        
+        let wishList = NSManagedObject(entity: entityWish!, insertIntoManagedObjectContext: managedContext)
+        
+        user.setValue(wishList, forKey: "have")
+        wishList.setValue(user, forKey: "from")
+        
+        self.save(managedContext)
+        
     }
     
     //retrieve all users
@@ -46,48 +57,97 @@ class CoreDataWorker {
         
         let fetchRequest = NSFetchRequest(entityName: "User")
         
-        let itens = NSMutableArray()
-        
         do {
             let results =
                 try managedContext.executeFetchRequest(fetchRequest)
-            itens.addObjectsFromArray(results as! [NSManagedObject])
+            usersArray.removeAllObjects()
+            usersArray.addObjectsFromArray(results as! [NSManagedObject])
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
-        
-        return itens
+        return usersArray
     }
     
     func removeUsuario(name: String){
-        
-    }
-    
-    // TODO: Validate this type
-    func saveWishList(id:String){
-        
-    }
-    
-    //retrieve the wishlist of a user
-    func wishes(user:String) -> NSMutableArray {
         let managedContext = appDelegate.managedObjectContext
         
-        let fetchRequest = NSFetchRequest(entityName: "wishes")
+        let fetchRequest = NSFetchRequest(entityName: "User")
         
-        let itens = NSMutableArray()
+        let predicateUser = NSPredicate(format: "name == %@", name)
+        
+        fetchRequest.predicate = predicateUser
         
         do {
-            let results =
-                try managedContext.executeFetchRequest(fetchRequest)
-            itens.addObjectsFromArray(results as! [NSManagedObject])
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            if(results.count > 0){
+                let item = results.first as! NSManagedObject
+                managedContext.deleteObject(item)
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
+    // add a game to wishlist
+    func addGameToWishList(id:String,name:String,imageLink:String){
+        let managedContext = appDelegate.managedObjectContext
+        
+        let entity =  NSEntityDescription.entityForName("Game", inManagedObjectContext:managedContext)
+        
+        let game = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        game.setValue(id, forKey: "idGame")
+        game.setValue(name, forKey: "name")
+        game.setValue(imageLink, forKey: "imageLink")
+        
+        let wishlist = actualUser.valueForKey("have")
+        let games = wishlist!.mutableSetValueForKey("addresses")
+        games.addObject(game)
+
+        
+        self.save(managedContext)
+    }
+    
+    func gamesFromWishList() -> NSMutableSet {
+        
+        let wishlist = actualUser.valueForKey("have") as! NSManagedObject
+        
+        let games = wishlist.mutableSetValueForKey("game")
+        
+        return games
+    }
+    
+    //delete game from wishlist by id
+    func removeWishList(id:String){
+        let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "Game")
+        
+        let predicateGame = NSPredicate(format: "idGame == %@", id)
+        
+        fetchRequest.predicate = predicateGame
+        
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            if(results.count > 0){
+                let item = results.first as! NSManagedObject
+                managedContext.deleteObject(item)
+            }
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
         
-        return itens
     }
     
-    func removeWishList(id:String){
+    
+    
+    private func save(managedContext:NSManagedObjectContext){
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
         
     }
 }
