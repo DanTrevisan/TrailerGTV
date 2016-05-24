@@ -24,7 +24,7 @@ class CategoryCollectionViewController: UICollectionViewController {
         var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         var blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
-        backgroundImage.addSubview(blurEffectView)
+//        backgroundImage.addSubview(blurEffectView)
         
         tabBarController?.tabBar.items![0].title = "Destaques"
         tabBarController?.tabBar.items![1].title = "Categorias"
@@ -32,7 +32,7 @@ class CategoryCollectionViewController: UICollectionViewController {
         tabBarController?.tabBar.items![3].title = "Lista de Desejos"
         
         super.viewDidLoad()
-        backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
+//        backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
 
         // Register cell classes
 //        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
