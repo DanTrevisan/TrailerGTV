@@ -109,7 +109,45 @@ class JsonParser{
                         developersArray.append(developersName!)
                     }
                 }
-                gameManager.games[gameindex].setDetailInfo  (desc!, trailers: platformArray, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: "teste")
+                
+                var releaseDate = String()
+                var trueData = NSDate()
+                if (dict2["original_release_date"] as? String != nil){
+                    //Se o jogo já saiu
+                    let date1 = (dict2["original_release_date"] as? String)!
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    trueData = dateFormatter.dateFromString(date1)!
+                    releaseDate = dateFormatter.stringFromDate(trueData)
+                    
+                }else{
+                    //Se o jogo ainda não saiu (ainda não está considerando o atributo de trimestre (expected_release_quarter))
+                    if (dict2["expected_release_day"] as? Int != nil){
+                        let releaseday  = (dict2["expected_release_day"] as? Int)!
+                        let releasemonth = (dict2["expected_release_month"] as? Int)!
+                        let releaseyear  = (dict2["expected_release_year"] as? Int)!
+                        releaseDate = String(releaseyear) + "-" + String(releasemonth) + "-" + String(releaseday)
+
+                    }else if(dict2["expected_release_month"] as? Int != nil){
+                        let releasemonth = (dict2["expected_release_month"] as? Int)!
+                        let releaseyear  = (dict2["expected_release_year"] as? Int)!
+                        releaseDate = String(releaseyear) + "-" + String(releasemonth)
+
+                    }else if(dict2["expected_release_year"] as? Int != nil){
+                        let releaseyear  = (dict2["expected_release_year"] as? Int)!
+                        releaseDate = String(releaseyear)
+                    
+                    }else{
+                     releaseDate = "Não informada!"
+                    }
+                
+                
+                    
+
+                }
+                
+                
+                gameManager.games[gameindex].setDetailInfo  (desc!, trailers: platformArray, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: "teste", releasedate: releaseDate)
                         
                 }
         }catch {}

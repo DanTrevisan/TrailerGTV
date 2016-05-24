@@ -40,10 +40,51 @@ class MoreDetail : UIViewController{
             gamePlatforms.text = game.plataformas.joinWithSeparator(", ")
             gamePublisher.text = game.distribuidora.joinWithSeparator(", ")
             gameDeveloper.text = game.desenvolvedoras.joinWithSeparator(", ")
-            gameReleaseDate.text = game.releaseDate.description
+            
+            print(game.releaseDate)
+            if game.releaseDate != "Não informada" {
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy"
+                var strDate = dateFormatter.dateFromString(game.releaseDate)
+                gameReleaseDate.text = game.releaseDate
+
+                if (strDate == nil){
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    strDate = dateFormatter.dateFromString(game.releaseDate)
+                    if (strDate == nil){
+                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:s"
+                        strDate = dateFormatter.dateFromString(game.releaseDate)
+                        if (strDate == nil){
+                            dateFormatter.dateFormat = "yyyy"
+                            strDate = dateFormatter.dateFromString(game.releaseDate)
+                        }
+                        
+                    }
+                    let segstring = convertDateFormater(strDate!)
+                    gameReleaseDate.text = segstring
+                    
+                }
+                
+                
+                
+            }
+            else{
+                gameReleaseDate.text = game.releaseDate
+            }
+            
             
             
         }
 
+    }
+    func convertDateFormater(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .LongStyle
+        
+        dateFormatter.locale = NSLocale(localeIdentifier: "pt_BR")
+        
+        let timeStamp = dateFormatter.stringFromDate(date)
+        
+        return timeStamp
     }
 }
