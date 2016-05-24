@@ -11,17 +11,33 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class WishListCollectionViewController: UICollectionViewController {
+    
+    private let detailSegueIdentifier = "WishListDetail"
+    var gameManager = GameService.sharedInstance
+    private let reuseIdentifier = "GameCell"
+    let jParser : JsonParser = JsonParser.init()
+
+    @IBOutlet weak var backgroundImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        backgroundImage.addSubview(blurEffectView)
+        
+        tabBarController?.tabBar.items![0].title = "Destaques"
+        tabBarController?.tabBar.items![1].title = "Categorias"
+        tabBarController?.tabBar.items![2].title = "Busca"
+        tabBarController?.tabBar.items![3].title = "Lista de Desejos"
+        
+        super.viewDidLoad()
+        backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,21 +45,25 @@ class WishListCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        
+        if let destinationViewController = segue.destinationViewController as?
+            GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
+            jParser.fetchGameData(selectedIndex.item)
+            
+            destinationViewController.game = gameManager.games[selectedIndex.item]
+            
+        }
     }
-    */
+ 
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 

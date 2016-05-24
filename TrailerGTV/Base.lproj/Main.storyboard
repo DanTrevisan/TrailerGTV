@@ -1041,7 +1041,7 @@
                                 </constraints>
                                 <size key="customSize" width="300" height="525"/>
                                 <connections>
-                                    <segue destination="dYm-YC-mKg" kind="show" identifier="ListaDDetail" id="I5o-MF-3Va"/>
+                                    <segue destination="dYm-YC-mKg" kind="show" identifier="WishListDetail" id="I5o-MF-3Va"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -1275,7 +1275,7 @@
                                 </constraints>
                                 <size key="customSize" width="300" height="525"/>
                                 <connections>
-                                    <segue destination="dYm-YC-mKg" kind="show" identifier="BuscaDetail" id="V9j-5Q-yb7"/>
+                                    <segue destination="dYm-YC-mKg" kind="show" identifier="SearchDetail" id="V9j-5Q-yb7"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
