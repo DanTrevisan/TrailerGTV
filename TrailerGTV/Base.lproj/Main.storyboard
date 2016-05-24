@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="xkK-NE-Mwv">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="xkK-NE-Mwv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -423,7 +423,7 @@
         <!--MasterCategoriasTable-->
         <scene sceneID="2VE-aV-w9I">
             <objects>
-                <tableViewController title="MasterCategoriasTable" clearsSelectionOnViewWillAppear="NO" id="tBf-Y6-X9H" sceneMemberID="viewController">
+                <tableViewController title="MasterCategoriasTable" clearsSelectionOnViewWillAppear="NO" id="tBf-Y6-X9H" customClass="CategoriesTableViewController" customModule="TrailerGTV" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" id="VdB-Sl-ygj">
                         <rect key="frame" x="0.0" y="0.0" width="634" height="2350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -931,7 +931,7 @@
         <!--BuscaController-->
         <scene sceneID="v5c-wu-x70">
             <objects>
-                <viewController storyboardIdentifier="BuscaController" title="BuscaController" id="51o-8l-jJ9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BuscaController" title="BuscaController" id="51o-8l-jJ9" customClass="SearchViewController" customModule="TrailerGTV" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N5w-DK-P52"/>
                         <viewControllerLayoutGuide type="bottom" id="ueJ-Fo-rvM"/>
@@ -989,7 +989,7 @@
         <!--ListaDesejoCollection-->
         <scene sceneID="cXW-pz-ftP">
             <objects>
-                <collectionViewController storyboardIdentifier="ListaDesejoCollection" title="ListaDesejoCollection" id="EDX-Ia-icQ" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="ListaDesejoCollection" title="ListaDesejoCollection" id="EDX-Ia-icQ" customClass="WishListCollectionViewController" customModule="TrailerGTV" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Koh-nF-A2o">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1140,7 +1140,7 @@
         <!--DetailCategoria-->
         <scene sceneID="b4A-fF-RzV">
             <objects>
-                <collectionViewController title="DetailCategoria" id="Rab-i6-6Wd" sceneMemberID="viewController">
+                <collectionViewController title="DetailCategoria" id="Rab-i6-6Wd" customClass="CategoryCollectionViewController" customModule="TrailerGTV" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1bw-wR-U4D">
                         <rect key="frame" x="0.0" y="0.0" width="1285" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1223,7 +1223,7 @@
         <!--BuscaResultadoCollection-->
         <scene sceneID="VoR-rx-0kd">
             <objects>
-                <collectionViewController title="BuscaResultadoCollection" id="1jz-Rw-JJm" sceneMemberID="viewController">
+                <collectionViewController title="BuscaResultadoCollection" id="1jz-Rw-JJm" customClass="SearchResultsCollectionViewController" customModule="TrailerGTV" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nx5-QV-uye">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1308,6 +1308,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="36h-xw-JAI"/>
+        <segue reference="I5o-MF-3Va"/>
     </inferredMetricsTieBreakers>
 </document>
