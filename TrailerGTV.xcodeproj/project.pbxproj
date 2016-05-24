@@ -90,6 +90,7 @@
 				5C8D92B01CEF3D4F00B0E6D6 /* UserViewController.swift */,
 			);
 			name = ViewControllers;
+        };
 		0220952A1CF4750700C8A4CC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
