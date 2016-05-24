@@ -1,44 +1,26 @@
 //
-//  LoginViewController.swift
+//  UserViewController.swift
 //  TrailerGTV
 //
-//  Created by Humberto  Julião on 16/05/16.
+//  Created by Humberto  Julião on 20/05/16.
 //  Copyright © 2016 Daniel Trevisan. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class UserViewController: UIViewController {
 
     var cdWorker:CoreDataWorker!
-    var users: NSArray!
-    
-//    @IBOutlet  colecao
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cdWorker = CoreDataWorker()
-        users = cdWorker.usersArray
-
+        cdWorker=CoreDataWorker()
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func toTabBar(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.window?.rootViewController = tabBar
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func novoUsuario(name: NSString){
-        cdWorker.addUser(name as String)
-//        colecao.reloadData()
-        
     }
 
     /*
