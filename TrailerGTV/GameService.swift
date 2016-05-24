@@ -11,4 +11,8 @@ import UIKit
 class GameService: NSObject {
     static let sharedInstance = GameService()
 
+    var games = [Game]()
+    
+    private override init() {
+    }
 }

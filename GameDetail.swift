@@ -56,9 +56,20 @@ private extension GameDetail{
     func setDetail(){
         
         if let game = game{
+            
             gameName.text = game.title
-            backgroundImage.image = UIImage(named: game.imageURL)
-            imageView.image = backgroundImage.image
+            
+            ImageLoader.sharedLoader.imageForUrl(game.imageURL, completionHandler:{(image: UIImage?, url: String) in
+                self.backgroundImage.image = image
+                self.imageView.image = self.backgroundImage.image
+
+            })
+            gameDesc.text = game.description
+            namePlatform.text = game.plataformas.joinWithSeparator(", ")
+            gameGenre.text = game.genero.joinWithSeparator(", ")
+            //nameDevelop.text = game.desenvolvedoras.joinWithSeparator(", ")
+            
+            
         }
         
         else{
