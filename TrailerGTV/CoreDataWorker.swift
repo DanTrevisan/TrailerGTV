@@ -16,7 +16,7 @@ class CoreDataWorker {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     let usersArray = NSMutableArray()
-    private var actualUser = NSManagedObject()
+    private var actualUser = NSManagedObject?()
     
   // MARK: Business Logic
     func selectUser(user:NSManagedObject){
@@ -100,7 +100,7 @@ class CoreDataWorker {
         game.setValue(name, forKey: "name")
         game.setValue(imageLink, forKey: "imageLink")
         
-        let wishlist = actualUser.valueForKey("have")
+        let wishlist = actualUser!.valueForKey("have")
         let games = wishlist!.mutableSetValueForKey("addresses")
         games.addObject(game)
 
@@ -110,7 +110,7 @@ class CoreDataWorker {
     
     func gamesFromWishList() -> NSMutableSet {
         
-        let wishlist = actualUser.valueForKey("have") as! NSManagedObject
+        let wishlist = actualUser!.valueForKey("have") as! NSManagedObject
         
         let games = wishlist.mutableSetValueForKey("game")
         
