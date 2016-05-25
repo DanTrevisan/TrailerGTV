@@ -14,7 +14,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     
     var gameManager = GameService.sharedInstance
     private let reuseIdentifier = "GameCell"
-    let jParser : JsonParser = JsonParser.init()
+    //let jParser : JsonParser = JsonParser.init()
     
     @IBOutlet weak var backgroundImage: UIImageView!
 

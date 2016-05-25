@@ -30,6 +30,7 @@ class GameCollectionViewController: UICollectionViewController {
         
         self.setupExemplos()
         super.viewDidLoad()
+        jParser.getGames()
         backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
 
     }
@@ -104,9 +105,4 @@ extension GameCollectionViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 0, left: 90, bottom: 70, right: 90)
     }
 }
-extension GameCollectionViewController {
-    override func collectionView(collectionView: UICollectionView,
-                                 didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier(detailSegueIdentifier, sender: nil)
-    }
-}
+

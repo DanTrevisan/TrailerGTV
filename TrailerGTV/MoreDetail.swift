@@ -41,7 +41,7 @@ class MoreDetail : UIViewController{
             gamePublisher.text = game.distribuidora.joinWithSeparator(", ")
             gameDeveloper.text = game.desenvolvedoras.joinWithSeparator(", ")
             
-            print(game.releaseDate)
+            //print(game.releaseDate)
             if game.releaseDate != "Não informada" {
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "yyyy"

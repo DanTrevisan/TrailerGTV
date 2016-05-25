@@ -15,7 +15,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
     private let detailSegueIdentifier = "SearchDetail"
     var gameManager = GameService.sharedInstance
     private let reuseIdentifier = "GameCell"
-    let jParser : JsonParser = JsonParser.init()
+    //let jParser : JsonParser = JsonParser.init()
 
     @IBOutlet weak var backgroundImage: UIImageView!
 
@@ -52,7 +52,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
-            jParser.fetchGameData(selectedIndex.item)
+            //jParser.fetchGameData(selectedIndex.item)
             
             destinationViewController.game = gameManager.games[selectedIndex.item]
             

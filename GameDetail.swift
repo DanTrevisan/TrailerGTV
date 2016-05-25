@@ -80,15 +80,7 @@ private extension GameDetail{
         }
         
         else{
-        //TO DO: Dar setup propriamente nesses dados, pra deixas as informações dinâmicas, de acordo com a GameCollection
-        
-            gameName.text = "Super Smash Bros. for Wii U"
-            gameDesc.text = "Nintendo All-stars in a all-out fighting game"
-            gameGenre.text = "Fighting"
-            numPlayers.text = "1-8 players"
-            namePlatform.text = "Wii U"
-            imageView.image = UIImage(named: "smashwiiu")
-            backgroundImage.image = imageView.image
+            
         }
 
     }

@@ -13,6 +13,10 @@ class JsonParser{
 
     
     init(){
+
+    }
+    
+    func getGames(){
         if let path = NSBundle.mainBundle().pathForResource("JSONexemplo", ofType: "json") {
             do {
                 let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
@@ -20,32 +24,26 @@ class JsonParser{
                     let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     if let dict = jsonResult as? [String: AnyObject] {
                         if let results = dict["results"] as? [AnyObject] {
+                            print(results.count)
                             for dict2 in results {
                                 
                                 //Dá pra filtrar alguma coisa extra aqui
                                 let id = dict2["name"] as? String
-                                print("\(id!)")
                                 
                                 //Pega a url da Api do jogo, para conseguir os detalhes depois
                                 let stringApi = dict2["api_detail_url"] as? String
                                 let ranges = Range(stringApi!.startIndex.advancedBy(34)..<stringApi!.endIndex.advancedBy(-1))
                                 
                                 let stringGameID = stringApi?.substringWithRange(ranges)
-                                print(stringGameID)
-                                
-                                
-                                
                                 
                                 let url = dict2["image"]!!["super_url"] as? String
                                 if url != nil{
-                                    print("\(url!)")
-
                                     let game1:Game = Game.init(title: id! as String,imageURL: url!, gameString: stringGameID!)!
                                     gameManager.games.append(game1)
                                 }
                                 
                                 
-
+                                
                                 
                             }
                         }
@@ -69,7 +67,7 @@ class JsonParser{
         do {
             let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             if let dict = jsonResult as? [String: AnyObject] {
-                print(dict["results"]!["name"])
+                //print(dict["results"]!["name"])
                 let dict2 = (dict["results"] as? NSDictionary)!
                 
                 //DESCRIÇÃO
@@ -110,6 +108,7 @@ class JsonParser{
                     }
                 }
                 
+                //RELEASE DATE ou EXPECTED RELEASE DATE
                 var releaseDate = String()
                 var trueData = NSDate()
                 if (dict2["original_release_date"] as? String != nil){
@@ -140,11 +139,24 @@ class JsonParser{
                     }else{
                      releaseDate = "Não informada!"
                     }
-                
-                
-                    
-
                 }
+                
+                //RATING ESRB
+                let ratings = dict2["original_game_rating"] as? NSArray
+                var ratingString = String()
+                if ratings != nil {
+                    for dictionaries in ratings!{
+                        let ratingID = dictionaries["id"] as? Int
+                        if (ratingID == 6){
+                            ratingString = (dictionaries["name"] as? String)!
+                        }
+                    }
+                }
+                else{
+                    ratingString = "Rating Pending"
+                }
+                print(ratingString)
+                
                 
                 
                 gameManager.games[gameindex].setDetailInfo  (desc!, trailers: platformArray, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: "teste", releasedate: releaseDate)
