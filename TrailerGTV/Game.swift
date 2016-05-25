@@ -20,7 +20,7 @@ struct Game{
     var genero: [String]
     var rank: String
     var faixaetaria: String
-    var releaseDate: NSDate
+    var releaseDate: String
     var imageURL: String
     
     init?(title: String, imageURL: String, gameString: String) {
@@ -44,12 +44,12 @@ struct Game{
         self.genero.append("notgame")
         self.rank = "0 estrelas"
         self.faixaetaria = "PG13"
-        self.releaseDate = NSDate.init(timeIntervalSinceNow: 0)
+        self.releaseDate = "Não informada"
         self.imageURL = imageURL
 
         
     }
-    mutating func setDetailInfo(desc: String, trailers: [String], distri: [String], desenv: [String], platf: [String], generos: [String], rank: String, faixaetaria: String){
+    mutating func setDetailInfo(desc: String, trailers: [String], distri: [String], desenv: [String], platf: [String], generos: [String], rank: String, faixaetaria: String, releasedate: String){
         self.description = desc
         self.desenvolvedoras = desenv
         self.distribuidora = distri
@@ -57,6 +57,7 @@ struct Game{
         self.genero = generos
         self.rank = rank
         self.faixaetaria = faixaetaria
+        self.releaseDate = releasedate
         
     
     }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIKit
 import AVKit
 import AVFoundation
 
@@ -17,11 +16,8 @@ class GameDetail: UIViewController {
     @IBOutlet weak var gameDesc: UILabel!
     @IBOutlet weak var gameGenre: UILabel!
     @IBOutlet weak var numPlayers: UILabel!
-    @IBOutlet weak var nameDevelop: UILabel!
     @IBOutlet weak var namePlatform: UILabel!
-    @IBOutlet weak var releaseDate: UILabel!
     @IBOutlet weak var buttonWatch: UIButton!
-    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -46,6 +42,17 @@ class GameDetail: UIViewController {
         playerController.player = player
         self.presentViewController(playerController, animated: true) {
             player.play()
+        }
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue,
+                                  sender: AnyObject?) {
+        // 1, 2
+        if let destinationViewController = segue.destinationViewController as?
+            MoreDetail{
+           // jParser.fetchGameData(selectedIndex.item)
+            // 3
+            destinationViewController.game = game
+            
         }
     }
     
@@ -79,9 +86,7 @@ private extension GameDetail{
             gameDesc.text = "Nintendo All-stars in a all-out fighting game"
             gameGenre.text = "Fighting"
             numPlayers.text = "1-8 players"
-            nameDevelop.text = "Nintendo"
             namePlatform.text = "Wii U"
-            releaseDate.text = "30/12/2014"
             imageView.image = UIImage(named: "smashwiiu")
             backgroundImage.image = imageView.image
         }
@@ -96,5 +101,6 @@ private extension GameDetail{
             debugPrint("Generic error")
         }
     }
+    
     
 }
