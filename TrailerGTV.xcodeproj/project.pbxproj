@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C6ADE9B1CEDF7C200150FD1 /* UsuarioWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */; };
-		5C8D92AE1CEF2EB400B0E6D6 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */; };
-		5C8D92B11CEF3D4F00B0E6D6 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92B01CEF3D4F00B0E6D6 /* UserViewController.swift */; };
-		5C8D92B51CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92B31CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld */; };
 		022095291CF474F300C8A4CC /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022095281CF474F300C8A4CC /* CategoriesTableViewController.swift */; };
 		0220952D1CF4761500C8A4CC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220952C1CF4761500C8A4CC /* SearchViewController.swift */; };
 		0220952F1CF476E700C8A4CC /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220952E1CF476E700C8A4CC /* CategoryCollectionViewController.swift */; };
 		022095331CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022095321CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift */; };
 		022095351CF4779000C8A4CC /* WishListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022095341CF4779000C8A4CC /* WishListCollectionViewController.swift */; };
+		0235ECA01CF5CC9C006C56FF /* MoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0235EC9F1CF5CC9C006C56FF /* MoreDetail.swift */; };
+		5C6ADE9B1CEDF7C200150FD1 /* UsuarioWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */; };
+		5C8D92AE1CEF2EB400B0E6D6 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */; };
+		5C8D92B51CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92B31CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld */; };
 		5CFE29641CEA0C3100DAA6B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE29631CEA0C3100DAA6B2 /* LoginViewController.swift */; };
 		657F932B1CE20E6300C5C87B /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657F932A1CE20E6300C5C87B /* GameService.swift */; };
 		65B7CB661CE9FBBF00A8D319 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7CB651CE9FBBF00A8D319 /* User.swift */; };
@@ -32,19 +32,18 @@
 		65C790D31CECA0DB002B95D0 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D21CECA0DB002B95D0 /* JsonParser.swift */; };
 		65C790D61CECA2FA002B95D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D51CECA2FA002B95D0 /* Extensions.swift */; };
 		65C790D81CECC135002B95D0 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D71CECC135002B95D0 /* ImageLoader.swift */; };
-		65C790DA1CF34E04002B95D0 /* MoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D91CF34E04002B95D0 /* MoreDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioWorker.swift; sourceTree = "<group>"; };
-		5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
-		5C8D92B01CEF3D4F00B0E6D6 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		5C8D92B41CEF430E00B0E6D6 /* TrailerGTV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrailerGTV.xcdatamodel; sourceTree = "<group>"; };
 		022095281CF474F300C8A4CC /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		0220952C1CF4761500C8A4CC /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0220952E1CF476E700C8A4CC /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		022095321CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsCollectionViewController.swift; sourceTree = "<group>"; };
 		022095341CF4779000C8A4CC /* WishListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewController.swift; sourceTree = "<group>"; };
+		0235EC9F1CF5CC9C006C56FF /* MoreDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetail.swift; sourceTree = "<group>"; };
+		5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioWorker.swift; sourceTree = "<group>"; };
+		5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
+		5C8D92B41CEF430E00B0E6D6 /* TrailerGTV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrailerGTV.xcdatamodel; sourceTree = "<group>"; };
 		5CFE29631CEA0C3100DAA6B2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		657F932A1CE20E6300C5C87B /* GameService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		65B7CB651CE9FBBF00A8D319 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -63,7 +62,6 @@
 		65C790D21CECA0DB002B95D0 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		65C790D51CECA2FA002B95D0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		65C790D71CECC135002B95D0 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		65C790D91CF34E04002B95D0 /* MoreDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,29 +75,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C8D92AF1CEF2F5C00B0E6D6 /* Workers */ = {
-			isa = PBXGroup;
-			children = (
-				5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */,
-				5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */,
-			);
-			name = Workers;
-			sourceTree = "<group>";
-		};
-		5C8D92B21CEF3D5500B0E6D6 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				5C8D92B01CEF3D4F00B0E6D6 /* UserViewController.swift */,
-			);
-			name = ViewControllers;
-        };
 		0220952A1CF4750700C8A4CC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				65C37DE21CD780AA0085CED8 /* GameDetail.swift */,
+				0235EC9F1CF5CC9C006C56FF /* MoreDetail.swift */,
 				5CFE29631CEA0C3100DAA6B2 /* LoginViewController.swift */,
 				0220952C1CF4761500C8A4CC /* SearchViewController.swift */,
-				65C37DE21CD780AA0085CED8 /* GameDetail.swift */,
-				65C37DE61CD782010085CED8 /* VideoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -142,6 +124,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		5C8D92AF1CEF2F5C00B0E6D6 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */,
+				5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */,
+			);
+			name = Workers;
+			sourceTree = "<group>";
+		};
 		65C37DC51CD778D20085CED8 = {
 			isa = PBXGroup;
 			children = (
@@ -161,10 +152,7 @@
 		65C37DD01CD778D20085CED8 /* TrailerGTV */ = {
 			isa = PBXGroup;
 			children = (
-				5C8D92B21CEF3D5500B0E6D6 /* ViewControllers */,
 				5C8D92AF1CEF2F5C00B0E6D6 /* Workers */,
-				65C37DE21CD780AA0085CED8 /* GameDetail.swift */,
-				65C790D91CF34E04002B95D0 /* MoreDetail.swift */,
 				65C37DEC1CD79A140085CED8 /* Game.swift */,
 				65B7CB651CE9FBBF00A8D319 /* User.swift */,
 				65C790D71CECC135002B95D0 /* ImageLoader.swift */,
@@ -265,9 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				65C37DE31CD780AA0085CED8 /* GameDetail.swift in Sources */,
-				5C8D92B11CEF3D4F00B0E6D6 /* UserViewController.swift in Sources */,
 				5C8D92B51CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld in Sources */,
 				5C6ADE9B1CEDF7C200150FD1 /* UsuarioWorker.swift in Sources */,
 				5C8D92AE1CEF2EB400B0E6D6 /* CoreDataWorker.swift in Sources */,
@@ -275,6 +261,7 @@
 				65C37DE91CD789680085CED8 /* GameCollectionViewCell.swift in Sources */,
 				65C37DE51CD781880085CED8 /* GameCollectionViewController.swift in Sources */,
 				65B7CB661CE9FBBF00A8D319 /* User.swift in Sources */,
+				0235ECA01CF5CC9C006C56FF /* MoreDetail.swift in Sources */,
 				0220952F1CF476E700C8A4CC /* CategoryCollectionViewController.swift in Sources */,
 				65C37DE71CD782010085CED8 /* VideoViewController.swift in Sources */,
 				022095351CF4779000C8A4CC /* WishListCollectionViewController.swift in Sources */,
