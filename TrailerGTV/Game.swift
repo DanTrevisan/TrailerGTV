@@ -13,7 +13,7 @@ struct Game{
     var title: String
     var description: String
     var gameAPIstring: String
-    var trailers: [String]
+    var trailer: String
     var distribuidora: [String]
     var desenvolvedoras: [String]
     var plataformas: [String]
@@ -31,9 +31,8 @@ struct Game{
         
         self.title = title
         self.description = "descricao"
-        self.trailers = [String]()
+        self.trailer = "Vazio"
         self.gameAPIstring = gameString
-        trailers.append("ssb4trailer")
         self.distribuidora = [String]()
         self.distribuidora.append("Not Found")
         self.desenvolvedoras = [String]()
@@ -49,7 +48,7 @@ struct Game{
 
         
     }
-    mutating func setDetailInfo(desc: String, trailers: [String], distri: [String], desenv: [String], platf: [String], generos: [String], rank: String, faixaetaria: String, releasedate: String){
+    mutating func setDetailInfo(desc: String, trailer: String, distri: [String], desenv: [String], platf: [String], generos: [String], rank: String, faixaetaria: String, releasedate: String){
         self.description = desc
         self.desenvolvedoras = desenv
         self.distribuidora = distri
@@ -58,6 +57,7 @@ struct Game{
         self.rank = rank
         self.faixaetaria = faixaetaria
         self.releaseDate = releasedate
+        self.trailer = trailer
         
     
     }
