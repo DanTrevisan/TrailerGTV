@@ -132,7 +132,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AC6-lu-9sO">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingsymbol_rp" translatesAutoresizingMaskIntoConstraints="NO" id="AC6-lu-9sO">
                                                 <rect key="frame" x="1610" y="0.0" width="90" height="90"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="dsg-Wr-OLC"/>
@@ -258,11 +258,12 @@
                         <outlet property="nameDevelop" destination="Iho-lW-F7T" id="zBo-1e-kGJ"/>
                         <outlet property="namePlatform" destination="qX2-vQ-HGk" id="Twm-78-YCn"/>
                         <outlet property="numPlayers" destination="NYw-5q-gSK" id="0KJ-3F-3rP"/>
+                        <outlet property="ratingImage" destination="AC6-lu-9sO" id="Q6G-Pg-zyg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ns7-Le-fUc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13641" y="1481"/>
+            <point key="canvasLocation" x="13465" y="1481"/>
         </scene>
         <!--MoreDetails-->
         <scene sceneID="acU-bP-tdV">
@@ -288,7 +289,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NNa-NZ-gz0">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingsymbol_rp" translatesAutoresizingMaskIntoConstraints="NO" id="NNa-NZ-gz0">
                                                 <rect key="frame" x="1600" y="0.0" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="6Km-RO-ptf"/>
@@ -1317,6 +1318,9 @@
             <point key="canvasLocation" x="11196" y="2513"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ratingsymbol_rp" width="30" height="45"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="I5o-MF-3Va"/>
     </inferredMetricsTieBreakers>

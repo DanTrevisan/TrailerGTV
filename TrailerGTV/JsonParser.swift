@@ -147,7 +147,7 @@ class JsonParser{
                 if ratings != nil {
                     for dictionaries in ratings!{
                         let ratingID = dictionaries["id"] as? Int
-                        if (ratingID == 6){
+                        if (ratingID == 6 || ratingID == 1 || ratingID == 29 || ratingID == 16){
                             ratingString = (dictionaries["name"] as? String)!
                         }
                     }
@@ -159,7 +159,7 @@ class JsonParser{
                 
                 
                 
-                gameManager.games[gameindex].setDetailInfo  (desc!, trailers: platformArray, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: "teste", releasedate: releaseDate)
+                gameManager.games[gameindex].setDetailInfo  (desc!, trailers: platformArray, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
                         
                 }
         }catch {}
@@ -167,6 +167,13 @@ class JsonParser{
 //            }catch { "not found!"}
 //        }
 
+    }
+    func fetchVideoData(gameString: String) -> String{
+        let jsonData = NSData(contentsOfURL: NSURL.init(string: "http://www.giantbomb.com/api/videos/" + gameString + "/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&format=json")! )
+        
+        return gameString
+        
+        
     }
 
     

@@ -20,6 +20,7 @@ class GameDetail: UIViewController {
     @IBOutlet weak var buttonWatch: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var ratingImage: UIImageView!
     
     var game:Game?
     
@@ -34,10 +35,12 @@ class GameDetail: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     private func playVideo(vidname: String) throws {
-        guard let path = NSBundle.mainBundle().pathForResource("ssb4trailer", ofType:"mp4") else {
-            throw AppError.InvalidResource(vidname, "mp4")
-        }
-        let player = AVPlayer(URL: NSURL(fileURLWithPath: path))
+//http://v.giantbomb.com/video/tr_pokemon_20130108_1500.mp4
+//        guard let path = NSData(contentsOfURL: NSURL.init(string: "http://v.giantbomb.com/video/tr_pokemon_20130108_1500.mp4")! )
+// else {
+//            throw AppError.InvalidResource(vidname, "mp4")
+//        }
+        let player = AVPlayer(URL: NSURL(fileURLWithPath: "http://v.giantbomb.com/2016/05/28/vf_unchartedcowboy_05182016_1800.mp4"))
         let playerController = AVPlayerViewController()
         playerController.player = player
         self.presentViewController(playerController, animated: true) {
@@ -75,6 +78,8 @@ private extension GameDetail{
             namePlatform.text = game.plataformas.joinWithSeparator(", ")
             gameGenre.text = game.genero.joinWithSeparator(", ")
             //nameDevelop.text = game.desenvolvedoras.joinWithSeparator(", ")
+            setRatingImage(game.faixaetaria)
+            
             
             
         }
@@ -83,6 +88,23 @@ private extension GameDetail{
             
         }
 
+    }
+    
+    func setRatingImage(ratingString: String){
+        switch ratingString {
+        case "ESRB: E":
+            ratingImage.image = UIImage(named: "ratingsymbol_e")
+            print("blas")
+        case "ESRB: E10+":
+            ratingImage.image = UIImage(named: "ratingsymbol_e10")
+        case "ESRB: T":
+            ratingImage.image = UIImage(named: "ratingsymbol_t")
+        case "ESRB: M":
+            ratingImage.image = UIImage(named: "ratingsymbol_m")
+        default:
+            ratingImage.image = UIImage(named: "ratingsymbol_rp")
+
+        }
     }
     @IBAction func startTrailer(sender: AnyObject) {
         do {
