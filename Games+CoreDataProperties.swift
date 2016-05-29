@@ -1,0 +1,21 @@
+//
+//  Games+CoreDataProperties.swift
+//  TrailerGTV
+//
+//  Created by Humberto  Julião on 29/05/16.
+//  Copyright © 2016 Daniel Trevisan. All rights reserved.
+//
+//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
+//  to delete and recreate this implementation file for your updated model.
+//
+
+import Foundation
+import CoreData
+
+extension Games {
+
+    @NSManaged var name: String?
+    @NSManaged var imageLink: String?
+    @NSManaged var idGame: String?
+
+}
