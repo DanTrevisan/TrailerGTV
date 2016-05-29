@@ -35,12 +35,11 @@ class GameDetail: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     private func playVideo(vidname: String) throws {
-//http://v.giantbomb.com/video/tr_pokemon_20130108_1500.mp4
 //        guard let path = NSData(contentsOfURL: NSURL.init(string: "http://v.giantbomb.com/video/tr_pokemon_20130108_1500.mp4")! )
 // else {
 //            throw AppError.InvalidResource(vidname, "mp4")
 //        }
-        let player = AVPlayer(URL: NSURL(fileURLWithPath: "http://v.giantbomb.com/2016/05/28/vf_unchartedcowboy_05182016_1800.mp4"))
+        let player = AVPlayer(URL:  NSURL(string: "http://v.giantbomb.com/video/tr_pokemon_20130108_1500.mp4?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7")!)
         let playerController = AVPlayerViewController()
         playerController.player = player
         self.presentViewController(playerController, animated: true) {
