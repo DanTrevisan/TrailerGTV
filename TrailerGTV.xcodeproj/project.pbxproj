@@ -13,6 +13,8 @@
 		022095331CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022095321CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift */; };
 		022095351CF4779000C8A4CC /* WishListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022095341CF4779000C8A4CC /* WishListCollectionViewController.swift */; };
 		0235ECA01CF5CC9C006C56FF /* MoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0235EC9F1CF5CC9C006C56FF /* MoreDetail.swift */; };
+		5C11AC261CFB653B00966400 /* Games+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11AC241CFB653B00966400 /* Games+CoreDataProperties.swift */; };
+		5C11AC271CFB653B00966400 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11AC251CFB653B00966400 /* Games.swift */; };
 		5C6ADE9B1CEDF7C200150FD1 /* UsuarioWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */; };
 		5C8D92AE1CEF2EB400B0E6D6 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */; };
 		5C8D92B51CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C8D92B31CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld */; };
@@ -40,6 +42,8 @@
 		022095321CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsCollectionViewController.swift; sourceTree = "<group>"; };
 		022095341CF4779000C8A4CC /* WishListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewController.swift; sourceTree = "<group>"; };
 		0235EC9F1CF5CC9C006C56FF /* MoreDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetail.swift; sourceTree = "<group>"; };
+		5C11AC241CFB653B00966400 /* Games+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Games+CoreDataProperties.swift"; path = "../Games+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5C11AC251CFB653B00966400 /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Games.swift; path = ../Games.swift; sourceTree = "<group>"; };
 		5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsuarioWorker.swift; sourceTree = "<group>"; };
 		5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
 		5C8D92B41CEF430E00B0E6D6 /* TrailerGTV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrailerGTV.xcdatamodel; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 		5C8D92AF1CEF2F5C00B0E6D6 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				5C11AC241CFB653B00966400 /* Games+CoreDataProperties.swift */,
+				5C11AC251CFB653B00966400 /* Games.swift */,
 				5C6ADE941CEDF7C200150FD1 /* UsuarioWorker.swift */,
 				5C8D92AD1CEF2EB400B0E6D6 /* CoreDataWorker.swift */,
 			);
@@ -256,8 +262,10 @@
 				65C37DED1CD79A140085CED8 /* Game.swift in Sources */,
 				65C37DE91CD789680085CED8 /* GameCollectionViewCell.swift in Sources */,
 				65C37DE51CD781880085CED8 /* GameCollectionViewController.swift in Sources */,
+				5C11AC261CFB653B00966400 /* Games+CoreDataProperties.swift in Sources */,
 				65B7CB661CE9FBBF00A8D319 /* User.swift in Sources */,
 				0235ECA01CF5CC9C006C56FF /* MoreDetail.swift in Sources */,
+				5C11AC271CFB653B00966400 /* Games.swift in Sources */,
 				0220952F1CF476E700C8A4CC /* CategoryCollectionViewController.swift in Sources */,
 				65C37DE71CD782010085CED8 /* VideoViewController.swift in Sources */,
 				022095351CF4779000C8A4CC /* WishListCollectionViewController.swift in Sources */,

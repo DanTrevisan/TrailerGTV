@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="xkK-NE-Mwv">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="xkK-NE-Mwv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1102,51 +1102,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxD-9v-lqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3584" y="1481"/>
-        </scene>
-        <!--LoginView-->
-        <scene sceneID="x73-Hf-OnR">
-            <objects>
-                <viewController storyboardIdentifier="LoginView" title="LoginView" id="D8R-1f-6Hy" customClass="LoginViewController" customModule="TrailerGTV" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xGL-Ee-kvW"/>
-                        <viewControllerLayoutGuide type="bottom" id="wz7-Gt-EQS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lYi-Zz-fya">
-                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKQ-T5-pXV">
-                                <rect key="frame" x="662" y="497" width="196" height="86"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="User A"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNv-FE-6ly">
-                                <rect key="frame" x="1063" y="497" width="195" height="86"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="User B"/>
-                                <connections>
-                                    <action selector="toTabBar:" destination="D8R-1f-6Hy" eventType="primaryActionTriggered" id="Jer-zG-Yqt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nf-Cv-6R3">
-                                <rect key="frame" x="701" y="894" width="518" height="86"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Adicionar/Deletar Usuário"/>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="wz7-Gt-EQS" firstAttribute="top" secondItem="5nf-Cv-6R3" secondAttribute="bottom" constant="100" id="0c2-1r-zyT"/>
-                            <constraint firstItem="sKQ-T5-pXV" firstAttribute="centerX" secondItem="lYi-Zz-fya" secondAttribute="centerX" constant="-200" id="1Fo-h5-RRR"/>
-                            <constraint firstItem="5nf-Cv-6R3" firstAttribute="centerX" secondItem="lYi-Zz-fya" secondAttribute="centerX" id="3nf-yJ-g66"/>
-                            <constraint firstItem="kNv-FE-6ly" firstAttribute="centerX" secondItem="lYi-Zz-fya" secondAttribute="centerX" constant="200" id="NNj-S7-EE3"/>
-                            <constraint firstItem="sKQ-T5-pXV" firstAttribute="centerY" secondItem="lYi-Zz-fya" secondAttribute="centerY" id="Sgx-Ft-Far"/>
-                            <constraint firstItem="kNv-FE-6ly" firstAttribute="centerY" secondItem="lYi-Zz-fya" secondAttribute="centerY" id="rxx-Id-Udy"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3bj-Sa-fCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1120" y="1481"/>
         </scene>
         <!--DetailCategoria-->
         <scene sceneID="b4A-fF-RzV">
