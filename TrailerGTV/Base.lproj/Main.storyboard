@@ -935,7 +935,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="MmR-uu-SVp">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="MmR-uu-SVp" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="249" width="300" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -943,17 +943,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mSo-1B-9RK">
-                                            <rect key="frame" x="58" y="8" width="200" height="340"/>
+                                            <rect key="frame" x="58" y="8" width="300" height="340"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rwK-pe-wsW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="300" id="Gz9-ne-a2r"/>
-                                                        <constraint firstAttribute="width" constant="200" id="eDa-qg-hKx"/>
+                                                        <constraint firstAttribute="width" constant="300" id="eDa-qg-hKx"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQp-ra-L9B">
-                                                    <rect key="frame" x="0.0" y="300" width="200" height="40"/>
+                                                    <rect key="frame" x="0.0" y="300" width="300" height="40"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -972,6 +972,8 @@
                                 </constraints>
                                 <size key="customSize" width="300" height="525"/>
                                 <connections>
+                                    <outlet property="gameImage" destination="rwK-pe-wsW" id="TNQ-Gb-XoM"/>
+                                    <outlet property="gameName" destination="QQp-ra-L9B" id="41j-5G-IQM"/>
                                     <segue destination="dYm-YC-mKg" kind="show" identifier="WishListDetail" id="I5o-MF-3Va"/>
                                 </connections>
                             </collectionViewCell>
@@ -1041,7 +1043,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="NBY-fk-gC8">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="NBY-fk-gC8" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="249" width="300" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1049,17 +1051,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-jl-3ds">
-                                            <rect key="frame" x="58" y="8" width="200" height="340"/>
+                                            <rect key="frame" x="58" y="8" width="300" height="340"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EIw-hR-w1y">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="kC0-Y7-DR5"/>
+                                                        <constraint firstAttribute="width" constant="300" id="kC0-Y7-DR5"/>
                                                         <constraint firstAttribute="height" constant="300" id="ptC-Qi-aK9"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1R-14-z02">
-                                                    <rect key="frame" x="0.0" y="300" width="200" height="40"/>
+                                                    <rect key="frame" x="0.0" y="300" width="300" height="40"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1077,6 +1079,10 @@
                                     <constraint firstItem="Ug3-jl-3ds" firstAttribute="top" secondItem="NBY-fk-gC8" secondAttribute="topMargin" id="SHL-Un-xXZ"/>
                                 </constraints>
                                 <size key="customSize" width="300" height="525"/>
+                                <connections>
+                                    <outlet property="gameImage" destination="EIw-hR-w1y" id="x96-Xu-CcC"/>
+                                    <outlet property="gameName" destination="g1R-14-z02" id="xdr-V3-Onu"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="pcI-h5-YE0">
@@ -1124,7 +1130,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6T5-Le-hAA">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6T5-Le-hAA" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="249" width="300" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1132,17 +1138,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AAg-5m-aNK">
-                                            <rect key="frame" x="58" y="8" width="200" height="340"/>
+                                            <rect key="frame" x="58" y="8" width="300" height="340"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pg4-Pt-wwK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="dTY-ub-4HO"/>
+                                                        <constraint firstAttribute="width" constant="300" id="dTY-ub-4HO"/>
                                                         <constraint firstAttribute="height" constant="300" id="tGX-Zo-1gt"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWD-yF-s2c">
-                                                    <rect key="frame" x="0.0" y="300" width="200" height="40"/>
+                                                    <rect key="frame" x="0.0" y="300" width="300" height="40"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1161,6 +1167,8 @@
                                 </constraints>
                                 <size key="customSize" width="300" height="525"/>
                                 <connections>
+                                    <outlet property="gameImage" destination="Pg4-Pt-wwK" id="tfv-RT-CD3"/>
+                                    <outlet property="gameName" destination="GWD-yF-s2c" id="hPz-PB-YNk"/>
                                     <segue destination="dYm-YC-mKg" kind="show" identifier="SearchDetail" id="V9j-5Q-yb7"/>
                                 </connections>
                             </collectionViewCell>
@@ -1197,6 +1205,6 @@
         <image name="ratingsymbol_rp" width="30" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V9j-5Q-yb7"/>
+        <segue reference="I5o-MF-3Va"/>
     </inferredMetricsTieBreakers>
 </document>
