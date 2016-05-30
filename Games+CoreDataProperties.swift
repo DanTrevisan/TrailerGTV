@@ -14,7 +14,7 @@ import CoreData
 
 extension Games {
 
-    @NSManaged var name: String?
+    @NSManaged var gameName: String?
     @NSManaged var imageLink: String?
     @NSManaged var idGame: String?
 

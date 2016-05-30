@@ -26,7 +26,7 @@ class CoreDataWorker {
         let game = Games(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         game.idGame = id
-        game.name = name
+        game.gameName = name
         game.imageLink = imageLink
         
         self.save(managedContext)
