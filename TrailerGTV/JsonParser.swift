@@ -15,11 +15,21 @@ class JsonParser{
     }
     
     func getGames(){
+        let original = "http://www.giantbomb.com/api/games/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&sort=original_release_date:asc&format=json&filter=platforms:146|139|145|117|129,expected_release_quarter:2"
+        var jsonDatateste = NSData()
+        if let encodedString = original.stringByAddingPercentEncodingWithAllowedCharacters(
+            NSCharacterSet.URLFragmentAllowedCharacterSet()),
+            url = NSURL(string: encodedString) {
+            print(url)
+            jsonDatateste = NSData(contentsOfURL: url )!
+        }
+        
+        
         if let path = NSBundle.mainBundle().pathForResource("JSONexemplo", ofType: "json") {
             do {
                 let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
                 do {
-                    let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                    let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonDatateste, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     if let dict = jsonResult as? [String: AnyObject] {
                         if let results = dict["results"] as? [AnyObject] {
                             print(results.count)
