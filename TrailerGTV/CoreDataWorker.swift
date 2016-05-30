@@ -78,6 +78,28 @@ class CoreDataWorker {
         
     }
     
+    func searchByID(id:String) -> Bool{
+        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "Games")
+        
+        let predicateGame = NSPredicate(format: "idGame == %@", id)
+        
+        fetchRequest.predicate = predicateGame
+        
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            if(results.count > 0){
+                return true
+            }else{
+                return false}
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
     private func save(managedContext:NSManagedObjectContext){
         
         do {
