@@ -71,6 +71,7 @@ class MoreDetail : UIViewController{
             else{
                 gameReleaseDate.text = game.releaseDate
             }
+            setRatingImage(game.faixaetaria)
             
             
             
@@ -86,5 +87,20 @@ class MoreDetail : UIViewController{
         let timeStamp = dateFormatter.stringFromDate(date)
         
         return timeStamp
+    }
+    func setRatingImage(ratingString: String){
+        switch ratingString {
+        case "ESRB: E":
+            gameRating.image = UIImage(named: "ratingsymbol_e")
+        case "ESRB: E10+":
+            gameRating.image = UIImage(named: "ratingsymbol_e10")
+        case "ESRB: T":
+            gameRating.image = UIImage(named: "ratingsymbol_t")
+        case "ESRB: M":
+            gameRating.image = UIImage(named: "ratingsymbol_m")
+        default:
+            gameRating.image = UIImage(named: "ratingsymbol_rp")
+            
+        }
     }
 }

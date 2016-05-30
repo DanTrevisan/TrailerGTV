@@ -10,8 +10,6 @@ import UIKit
 
 class JsonParser{
     var gameManager = GameService.sharedInstance
-
-    
     init(){
 
     }
@@ -147,7 +145,7 @@ class JsonParser{
                 if ratings != nil {
                     for dictionaries in ratings!{
                         let ratingID = dictionaries["id"] as? Int
-                        if (ratingID == 6){
+                        if (ratingID == 6 || ratingID == 1 || ratingID == 29 || ratingID == 16){
                             ratingString = (dictionaries["name"] as? String)!
                         }
                     }
@@ -155,18 +153,42 @@ class JsonParser{
                 else{
                     ratingString = "Rating Pending"
                 }
-                print(ratingString)
                 
-                
-                
-                gameManager.games[gameindex].setDetailInfo  (desc!, trailers: platformArray, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: "teste", releasedate: releaseDate)
+                //TRAILER
+                let trailers = dict2["videos"] as? NSArray
+                var gameTrailerString = String()
+                if (trailers?.count > 0){
+                    let vidDict = trailers?.objectAtIndex(0)
+                    let TrailerString = (vidDict!["api_detail_url"] as? String)!
+                    gameTrailerString = fetchVideoData(TrailerString)
+                }
+                else{
+                    gameTrailerString = "nil"
+                }
+                print(gameTrailerString)
+                gameManager.games[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
                         
                 }
         }catch {}
-                    
-//            }catch { "not found!"}
-//        }
-
+        
+    }
+    func fetchVideoData(gameString: String) -> String{
+        
+        // TOMAR CUIDADO AQUI COM REQUISIÇÕES!! 
+        var vidURL = String()
+        let jsonData = NSData(contentsOfURL: NSURL.init(string: gameString + "?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&format=json")! )
+        do{
+            let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            if let dict = jsonResult as? [String: AnyObject] {
+                let dict2 = (dict["results"] as? NSDictionary)!
+                
+                vidURL = (dict2["high_url"] as? String)!
+            }
+        }catch{
+                
+        }
+        return vidURL
+       
     }
 
     

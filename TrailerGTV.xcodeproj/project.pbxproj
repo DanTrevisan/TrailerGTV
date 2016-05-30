@@ -28,7 +28,6 @@
 		65C37DE51CD781880085CED8 /* GameCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DE41CD781880085CED8 /* GameCollectionViewController.swift */; };
 		65C37DE71CD782010085CED8 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DE61CD782010085CED8 /* VideoViewController.swift */; };
 		65C37DE91CD789680085CED8 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DE81CD789680085CED8 /* GameCollectionViewCell.swift */; };
-		65C37DEB1CD796350085CED8 /* ssb4trailer.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 65C37DEA1CD796350085CED8 /* ssb4trailer.mp4 */; };
 		65C37DED1CD79A140085CED8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C37DEC1CD79A140085CED8 /* Game.swift */; };
 		65C790D11CECA016002B95D0 /* JSONexemplo.json in Resources */ = {isa = PBXBuildFile; fileRef = 65C790D01CECA016002B95D0 /* JSONexemplo.json */; };
 		65C790D31CECA0DB002B95D0 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C790D21CECA0DB002B95D0 /* JsonParser.swift */; };
@@ -60,7 +59,6 @@
 		65C37DE41CD781880085CED8 /* GameCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionViewController.swift; sourceTree = "<group>"; };
 		65C37DE61CD782010085CED8 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		65C37DE81CD789680085CED8 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
-		65C37DEA1CD796350085CED8 /* ssb4trailer.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ssb4trailer.mp4; sourceTree = "<group>"; };
 		65C37DEC1CD79A140085CED8 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		65C790D01CECA016002B95D0 /* JSONexemplo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JSONexemplo.json; sourceTree = "<group>"; };
 		65C790D21CECA0DB002B95D0 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 				022095361CF477A700C8A4CC /* Controllers */,
 				65C37DD51CD778D20085CED8 /* Main.storyboard */,
 				65C37DD81CD778D30085CED8 /* Assets.xcassets */,
-				65C37DEA1CD796350085CED8 /* ssb4trailer.mp4 */,
 				65C37DDA1CD778D30085CED8 /* Info.plist */,
 				5C8D92B31CEF430E00B0E6D6 /* TrailerGTV.xcdatamodeld */,
 				65C37DE61CD782010085CED8 /* VideoViewController.swift */,
@@ -248,7 +245,6 @@
 				65C790D11CECA016002B95D0 /* JSONexemplo.json in Resources */,
 				65C37DD91CD778D30085CED8 /* Assets.xcassets in Resources */,
 				65C37DD71CD778D20085CED8 /* Main.storyboard in Resources */,
-				65C37DEB1CD796350085CED8 /* ssb4trailer.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

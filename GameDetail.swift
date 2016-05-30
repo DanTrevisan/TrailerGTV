@@ -20,6 +20,7 @@ class GameDetail: UIViewController {
     @IBOutlet weak var buttonWatch: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var ratingImage: UIImageView!
     
     var game:Game?
     
@@ -34,10 +35,11 @@ class GameDetail: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     private func playVideo(vidname: String) throws {
-        guard let path = NSBundle.mainBundle().pathForResource("ssb4trailer", ofType:"mp4") else {
-            throw AppError.InvalidResource(vidname, "mp4")
-        }
-        let player = AVPlayer(URL: NSURL(fileURLWithPath: path))
+        
+        print("URL: " + vidname + "?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7")
+
+        let player = AVPlayer(URL:  NSURL(string: vidname + "?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7")!)
+        
         let playerController = AVPlayerViewController()
         playerController.player = player
         self.presentViewController(playerController, animated: true) {
@@ -61,7 +63,6 @@ class GameDetail: UIViewController {
 }
 private extension GameDetail{
     func setDetail(){
-        
         if let game = game{
             
             gameName.text = game.title
@@ -74,7 +75,15 @@ private extension GameDetail{
             gameDesc.text = game.description
             namePlatform.text = game.plataformas.joinWithSeparator(", ")
             gameGenre.text = game.genero.joinWithSeparator(", ")
-            //nameDevelop.text = game.desenvolvedoras.joinWithSeparator(", ")
+            setRatingImage(game.faixaetaria)
+            
+            //Esconde o botão caso não tenha trailers
+            if (game.trailer == "nil"){
+                buttonWatch.hidden = true
+            }else{
+                buttonWatch.hidden = false
+            }
+            
             
             
         }
@@ -84,9 +93,27 @@ private extension GameDetail{
         }
 
     }
+    
+    func setRatingImage(ratingString: String){
+        switch ratingString {
+        case "ESRB: E":
+            ratingImage.image = UIImage(named: "ratingsymbol_e")
+        case "ESRB: E10+":
+            ratingImage.image = UIImage(named: "ratingsymbol_e10")
+        case "ESRB: T":
+            ratingImage.image = UIImage(named: "ratingsymbol_t")
+        case "ESRB: M":
+            ratingImage.image = UIImage(named: "ratingsymbol_m")
+        default:
+            ratingImage.image = UIImage(named: "ratingsymbol_rp")
+
+        }
+    }
     @IBAction func startTrailer(sender: AnyObject) {
         do {
-            try playVideo("ssb4trailer")
+            if let game = game{
+                try playVideo(game.trailer)
+            }
         } catch AppError.InvalidResource(let name, let type) {
             debugPrint("Could not find resource \(name).\(type)")
         } catch {
