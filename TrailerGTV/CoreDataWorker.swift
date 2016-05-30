@@ -98,6 +98,8 @@ class CoreDataWorker {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+        return false
+    
     }
     
     private func save(managedContext:NSManagedObjectContext){

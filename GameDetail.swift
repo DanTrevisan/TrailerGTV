@@ -86,11 +86,11 @@ private extension GameDetail{
                 buttonWatch.hidden = false
             }
             
-            if cdWorker.searchByID(game.gameAPIstring) {
-                buttonWishList.titleLabel?.text = "+ Lista de Desejos"
-            }else{
-                buttonWishList.titleLabel?.text = "- Lista de Desejos"
-            }
+//            if cdWorker.searchByID(game.gameAPIstring) {
+//                buttonWishList.titleLabel?.text = "+ Lista de Desejos"
+//            }else{
+//                buttonWishList.titleLabel?.text = "- Lista de Desejos"
+//            }
             
             
         }
