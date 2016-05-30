@@ -26,7 +26,7 @@ class CoreDataWorker {
         let game = Games(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         game.idGame = id
-        game.name = name
+        game.gameName = name
         game.imageLink = imageLink
         
         self.save(managedContext)
@@ -76,6 +76,28 @@ class CoreDataWorker {
             print("Could not fetch \(error), \(error.userInfo)")
         }
         
+    }
+    
+    func searchByID(id:String) -> Bool{
+        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "Games")
+        
+        let predicateGame = NSPredicate(format: "idGame == %@", id)
+        
+        fetchRequest.predicate = predicateGame
+        
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            if(results.count > 0){
+                return true
+            }else{
+                return false}
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
     
     private func save(managedContext:NSManagedObjectContext){

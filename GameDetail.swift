@@ -21,8 +21,10 @@ class GameDetail: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var ratingImage: UIImageView!
+    @IBOutlet weak var buttonWishList: UIButton!
     
     var game:Game?
+    let cdWorker = CoreDataWorker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +86,11 @@ private extension GameDetail{
                 buttonWatch.hidden = false
             }
             
+            if cdWorker.searchByID(game.gameAPIstring) {
+                buttonWishList.titleLabel?.text = "+ Lista de Desejos"
+            }else{
+                buttonWishList.titleLabel?.text = "- Lista de Desejos"
+            }
             
             
         }
@@ -120,6 +127,14 @@ private extension GameDetail{
             debugPrint("Generic error")
         }
     }
-    
+    @IBAction func addToWishList(sender: AnyObject) {
+        if let game = game{
+            if cdWorker.searchByID(game.gameAPIstring) {
+                cdWorker.removeGameFromWishList(game.gameAPIstring)
+            }else{
+                cdWorker.addGameToWishList(game.gameAPIstring, name: game.title, imageLink: game.imageURL)
+            }
+        }
+    }
     
 }

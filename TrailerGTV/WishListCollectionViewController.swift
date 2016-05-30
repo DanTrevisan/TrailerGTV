@@ -8,12 +8,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+//private let reuseIdentifier = "Cell"
 
 class WishListCollectionViewController: UICollectionViewController {
     
     private let detailSegueIdentifier = "WishListDetail"
     var gameManager = GameService.sharedInstance
+    let cdWorker = CoreDataWorker()
+    var arrayWishes = NSMutableArray()
     private let reuseIdentifier = "GameCell"
     //let jParser : JsonParser = JsonParser.init()
 
@@ -38,6 +40,12 @@ class WishListCollectionViewController: UICollectionViewController {
         // Register cell classes
 //        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+//        arrayWishes = cdWorker.gamesFromWishList()
+        super.viewWillAppear(animated)
+        arrayWishes = cdWorker.gamesFromWishList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,12 +77,18 @@ class WishListCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return arrayWishes.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
+        
+        let game = arrayWishes.objectAtIndex(indexPath.row) as! Games
     
+        ImageLoader.sharedLoader.imageForUrl(game.imageLink!, completionHandler:{(image: UIImage?, url: String) in
+            cell.gameImage.image = image
+        })
+        cell.gameName.text = game.gameName
         // Configure the cell
     
         return cell
