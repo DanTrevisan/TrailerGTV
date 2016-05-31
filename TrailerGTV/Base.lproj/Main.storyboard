@@ -935,7 +935,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="MmR-uu-SVp" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GameCell" id="MmR-uu-SVp" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="249" width="300" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1043,7 +1043,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="NBY-fk-gC8" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GameCell" id="NBY-fk-gC8" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="249" width="300" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1130,7 +1130,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6T5-Le-hAA" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GameCell" id="6T5-Le-hAA" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="249" width="300" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1205,6 +1205,6 @@
         <image name="ratingsymbol_rp" width="30" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I5o-MF-3Va"/>
+        <segue reference="V9j-5Q-yb7"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,7 +16,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
     private let detailSegueIdentifier = "SearchDetail"
     var gameManager = GameService.sharedInstance
     private let reuseIdentifier = "GameCell"
-    //let jParser : JsonParser = JsonParser.init()
+    let jParser : JsonParser = JsonParser.init()
     var search: NSString = ""
 
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -35,6 +35,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         tabBarController?.tabBar.items![3].title = "Lista de Desejos"
         
         super.viewDidLoad()
+        jParser.searchGames(search as String)
 //        backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
 
         // Register cell classes
@@ -54,9 +55,9 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
-            //jParser.fetchGameData(selectedIndex.item)
+            jParser.fetchGameData(selectedIndex.item)
             
-            destinationViewController.game = gameManager.games[selectedIndex.item]
+            destinationViewController.game = gameManager.searchGames[selectedIndex.item]
             
         }
     }
@@ -70,24 +71,32 @@ class SearchResultsCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        print(gameManager.searchGames.count)
+        return gameManager.searchGames.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
         
-        ImageLoader.sharedLoader.imageForUrl(gameManager.games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
+        ImageLoader.sharedLoader.imageForUrl(gameManager.searchGames[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
             cell.gameImage.image = image
         })
         //cell.gameImage.image = UIImage(named: gameManager.games[indexPath.row].imageURL)
-        cell.gameName.text = gameManager.games[indexPath.row].title
+        cell.gameName.text = gameManager.searchGames[indexPath.row].title
         
         // Configure the cell
         
         return cell
 
     }
+    
+//    override func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+//        if (context.nextFocusedIndexPath != nil){
+//            backgroundImage.image = UIImage(named: gameManager.games[(context.nextFocusedIndexPath?.row)!].imageURL)
+//            
+//        }
+//        
+//    }
 
 
 }
