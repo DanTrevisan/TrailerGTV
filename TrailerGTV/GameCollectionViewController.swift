@@ -18,10 +18,10 @@ class GameCollectionViewController: UICollectionViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
 
     override func viewDidLoad() {
-        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-        var blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        backgroundImage.addSubview(blurEffectView)
+//        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+//        var blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        backgroundImage.addSubview(blurEffectView)
         
         tabBarController?.tabBar.items![0].title = "Destaques"
         tabBarController?.tabBar.items![1].title = "Categorias"
@@ -60,11 +60,17 @@ class GameCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
+//        if NSData(contentsOfURL: NSURL(string: gameManager.games[indexPath.row].imageURL)!) != nil{
+//        ImageLoader.sharedLoader.imageForUrl(gameManager.games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
+//            cell.gameImage.image = image
+//        })
+//        }else{
+//            cell.gameImage.image = UIImage(named: "imgNaoDisp")
+//        }
         
         ImageLoader.sharedLoader.imageForUrl(gameManager.games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
             cell.gameImage.image = image
-        })
-        //cell.gameImage.image = UIImage(named: gameManager.games[indexPath.row].imageURL)
+         })   
         cell.gameName.text = gameManager.games[indexPath.row].title
     
         // Configure the cell

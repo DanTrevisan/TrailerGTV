@@ -20,7 +20,6 @@ class JsonParser{
         if let encodedString = original.stringByAddingPercentEncodingWithAllowedCharacters(
             NSCharacterSet.URLFragmentAllowedCharacterSet()),
             url = NSURL(string: encodedString) {
-            print(url)
             jsonDatateste = NSData(contentsOfURL: url )!
         }
         
@@ -45,6 +44,7 @@ class JsonParser{
                                 let stringGameID = stringApi?.substringWithRange(ranges)
                                 
                                 let url = dict2["image"]!!["super_url"] as? String
+                                
                                 if url != nil{
                                     let game1:Game = Game.init(title: id! as String,imageURL: url!, gameString: stringGameID!)!
                                     gameManager.games.append(game1)
@@ -190,9 +190,15 @@ class JsonParser{
         do{
             let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             if let dict = jsonResult as? [String: AnyObject] {
-                let dict2 = (dict["results"] as? NSDictionary)!
-                
-                vidURL = (dict2["high_url"] as? String)!
+                let statuscode = dict["status_code"] as? Int!
+                if  (statuscode == 1){
+                    let dict2 = (dict["results"] as? NSDictionary)!
+                    
+                    vidURL = (dict2["high_url"] as? String)!
+                }
+                else{
+                    vidURL = "nil"
+                }
             }
         }catch{
                 
