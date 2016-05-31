@@ -24,9 +24,6 @@ class WishListCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-        var blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
         //        backgroundImage.addSubview(blurEffectView)
         
         tabBarController?.tabBar.items![0].title = "Destaques"
@@ -53,14 +50,6 @@ class WishListCollectionViewController: UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-        if (context.nextFocusedIndexPath != nil){
-            backgroundImage.image = UIImage(named: (arrayWishes[(context.nextFocusedIndexPath?.row)!] as! Games).imageLink!)
-            
-        }
-        
     }
     
     
