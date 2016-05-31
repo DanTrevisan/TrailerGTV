@@ -72,7 +72,7 @@ private extension GameDetail{
             ImageLoader.sharedLoader.imageForUrl(game.imageURL, completionHandler:{(image: UIImage?, url: String) in
                 self.backgroundImage.image = image
                 self.imageView.image = self.backgroundImage.image
-
+                
             })
             gameDesc.text = game.description
             namePlatform.text = game.plataformas.joinWithSeparator(", ")
@@ -86,19 +86,19 @@ private extension GameDetail{
                 buttonWatch.hidden = false
             }
             
-//            if cdWorker.searchByID(game.gameAPIstring) {
-//                buttonWishList.titleLabel?.text = "+ Lista de Desejos"
-//            }else{
-//                buttonWishList.titleLabel?.text = "- Lista de Desejos"
-//            }
+            if cdWorker.searchByID(game.gameAPIstring)==false {
+                buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+            }else{
+                buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+            }
             
             
         }
-        
+            
         else{
             
         }
-
+        
     }
     
     func setRatingImage(ratingString: String){
@@ -128,11 +128,14 @@ private extension GameDetail{
         }
     }
     @IBAction func addToWishList(sender: AnyObject) {
-        if let game = game{
-            if cdWorker.searchByID(game.gameAPIstring) {
-                cdWorker.removeGameFromWishList(game.gameAPIstring)
+        if let gameLet = game{
+            if cdWorker.searchByID(gameLet.gameAPIstring) {
+                cdWorker.removeGameFromWishList(gameLet.gameAPIstring)
+                buttonWishList.titleLabel?.text = "+ Lista de Desejos"
+                
             }else{
-                cdWorker.addGameToWishList(game.gameAPIstring, name: game.title, imageLink: game.imageURL)
+                cdWorker.addGameToWishList(gameLet.gameAPIstring, name: gameLet.title, imageLink: gameLet.imageURL)
+                buttonWishList.titleLabel?.text = "- Lista de Desejos"
             }
         }
     }
