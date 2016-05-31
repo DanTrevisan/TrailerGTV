@@ -58,8 +58,18 @@ class JsonParser{
         }
     }
     
-    func fetchGameData(gameindex: Int){
-        let stringAPI = gameManager.games[gameindex].gameAPIstring
+    func fetchGameData(gameindex: Int, arrayName: String){
+        
+        let stringAPI: String
+        
+        if (arrayName == "games") {
+             stringAPI = gameManager.games[gameindex].gameAPIstring
+            print(stringAPI)
+        } else {
+             stringAPI = gameManager.searchGames[gameindex].gameAPIstring
+            print(stringAPI)
+        }
+        
         //let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
         let jsonData = NSData(contentsOfURL: NSURL.init(string: "http://www.giantbomb.com/api/game/" + stringAPI + "/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&format=json")! )
         do {
@@ -166,7 +176,13 @@ class JsonParser{
                     gameTrailerString = "nil"
                 }
                 print(gameTrailerString)
-                gameManager.games[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
+                
+                if (arrayName == "games") {
+                    gameManager.games[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
+                } else {
+                    gameManager.searchGames[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
+                }
+                
                         
                 }
         }catch {}

@@ -1195,6 +1195,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="GlH-ih-LOJ"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="l7F-Tq-ma9" id="lLe-u3-VMG"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SV5-Z8-V7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

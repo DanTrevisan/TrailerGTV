@@ -36,7 +36,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         
         super.viewDidLoad()
         jParser.searchGames(search as String)
-//        backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
+        backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
 
         // Register cell classes
 //        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -46,20 +46,6 @@ class SearchResultsCollectionViewController: UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    
-    // MARK: - Navigation
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if let destinationViewController = segue.destinationViewController as?
-            GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
-            jParser.fetchGameData(selectedIndex.item)
-            
-            destinationViewController.game = gameManager.searchGames[selectedIndex.item]
-            
-        }
     }
  
 
@@ -90,13 +76,27 @@ class SearchResultsCollectionViewController: UICollectionViewController {
 
     }
     
-//    override func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-//        if (context.nextFocusedIndexPath != nil){
-//            backgroundImage.image = UIImage(named: gameManager.games[(context.nextFocusedIndexPath?.row)!].imageURL)
-//            
-//        }
-//        
-//    }
+    override func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        if (context.nextFocusedIndexPath != nil){
+            backgroundImage.image = UIImage(named: gameManager.searchGames[(context.nextFocusedIndexPath?.row)!].imageURL)
+            
+        }
+        
+    }
+    
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let destinationViewController = segue.destinationViewController as?
+            GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
+            jParser.fetchGameData(selectedIndex.item, arrayName: "searchGames")
+            
+            destinationViewController.game = gameManager.searchGames[selectedIndex.item]
+            
+        }
+    }
 
 
 }
