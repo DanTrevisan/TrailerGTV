@@ -57,56 +57,42 @@ class CategoryCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-    
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
+        
+        ImageLoader.sharedLoader.imageForUrl(gameManager.games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
+            cell.gameImage.image = image
+        })
+        //cell.gameImage.image = UIImage(named: gameManager.games[indexPath.row].imageURL)
+        cell.gameName.text = gameManager.games[indexPath.row].title
+        
         // Configure the cell
-    
+        
         return cell
+
     }
     
     // MARK: - Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue,
-                                  sender: AnyObject?) {
-        // 1, 2
-        if let destinationViewController = segue.destinationViewController as?
-            GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
-            jParser.fetchGameData(selectedIndex.item)
-            // 3
-            destinationViewController.game = gameManager.games[selectedIndex.item]
-            
-        }
+//    override func prepareForSegue(segue: UIStoryboardSegue,
+//                                  sender: AnyObject?) {
+//        // 1, 2
+//        if let destinationViewController = segue.destinationViewController as?
+//            GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
+//            jParser.fetchGameData(selectedIndex.item)
+//            // 3
+//            destinationViewController.game = gameManager.games[selectedIndex.item]
+//            
+//        }
+//    }
+
+}
+
+extension CategoryCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: 300, height: 525)
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 90, bottom: 70, right: 90)
     }
-    */
-
 }

@@ -12,6 +12,7 @@ class GameService: NSObject {
     static let sharedInstance = GameService()
 
     var games = [Game]()
+    var searchGames = [Game]()
     
     private override init() {
     }
