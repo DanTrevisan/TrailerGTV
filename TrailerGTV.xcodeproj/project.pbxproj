@@ -12,6 +12,7 @@
 		0220952F1CF476E700C8A4CC /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220952E1CF476E700C8A4CC /* CategoryCollectionViewController.swift */; };
 		022095331CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022095321CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift */; };
 		022095351CF4779000C8A4CC /* WishListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022095341CF4779000C8A4CC /* WishListCollectionViewController.swift */; };
+		022589BA1CFF069900D2AD5D /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022589B91CFF069900D2AD5D /* SearchCollectionReusableView.swift */; };
 		0235ECA01CF5CC9C006C56FF /* MoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0235EC9F1CF5CC9C006C56FF /* MoreDetail.swift */; };
 		5C11AC261CFB653B00966400 /* Games+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11AC241CFB653B00966400 /* Games+CoreDataProperties.swift */; };
 		5C11AC271CFB653B00966400 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11AC251CFB653B00966400 /* Games.swift */; };
@@ -42,6 +43,7 @@
 		0220952E1CF476E700C8A4CC /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		022095321CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsCollectionViewController.swift; sourceTree = "<group>"; };
 		022095341CF4779000C8A4CC /* WishListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListCollectionViewController.swift; sourceTree = "<group>"; };
+		022589B91CFF069900D2AD5D /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
 		0235EC9F1CF5CC9C006C56FF /* MoreDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreDetail.swift; sourceTree = "<group>"; };
 		5C11AC241CFB653B00966400 /* Games+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Games+CoreDataProperties.swift"; path = "../Games+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5C11AC251CFB653B00966400 /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Games.swift; path = ../Games.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				0220952E1CF476E700C8A4CC /* CategoryCollectionViewController.swift */,
 				022095321CF4775B00C8A4CC /* SearchResultsCollectionViewController.swift */,
 				022095341CF4779000C8A4CC /* WishListCollectionViewController.swift */,
+				022589BB1CFF06A400D2AD5D /* Reusable View */,
 			);
 			name = "Collection View Controllers";
 			sourceTree = "<group>";
@@ -127,6 +130,14 @@
 				022095301CF476F300C8A4CC /* Collection View Controllers */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		022589BB1CFF06A400D2AD5D /* Reusable View */ = {
+			isa = PBXGroup;
+			children = (
+				022589B91CFF069900D2AD5D /* SearchCollectionReusableView.swift */,
+			);
+			name = "Reusable View";
 			sourceTree = "<group>";
 		};
 		5C8D92AF1CEF2F5C00B0E6D6 /* Workers */ = {
@@ -269,6 +280,7 @@
 				65B7CB661CE9FBBF00A8D319 /* User.swift in Sources */,
 				0235ECA01CF5CC9C006C56FF /* MoreDetail.swift in Sources */,
 				5CEE52A71CFDAFF200317DDB /* WishListCollectionViewCell.swift in Sources */,
+				022589BA1CFF069900D2AD5D /* SearchCollectionReusableView.swift in Sources */,
 				5C11AC271CFB653B00966400 /* Games.swift in Sources */,
 				0220952F1CF476E700C8A4CC /* CategoryCollectionViewController.swift in Sources */,
 				65C37DE71CD782010085CED8 /* VideoViewController.swift in Sources */,

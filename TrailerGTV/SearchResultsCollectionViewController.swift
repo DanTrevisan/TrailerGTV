@@ -18,6 +18,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
     private let reuseIdentifier = "GameCell"
     let jParser : JsonParser = JsonParser.init()
     var search: NSString = ""
+    var number: NSString = ""
 
     @IBOutlet weak var backgroundImage: UIImageView!
 
@@ -32,6 +33,9 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         jParser.searchGames(search as String)
         backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
+        
+        let num = gameManager.searchGames.count as NSNumber
+        number = num.stringValue
 
         // Register cell classes
 //        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -46,6 +50,23 @@ class SearchResultsCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "searchReusableView", forIndexPath: indexPath) as! SearchCollectionReusableView
+            headerView.searchLabel.text = "Sua busca: " + (search as String)
+            headerView.numbersLabel.text = (number as String) + " resultados"
+            return headerView
+            
+        default:
+            assert(false, "Unexpected element kind")
+        }
+        
+    }
+    
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
