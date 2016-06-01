@@ -17,7 +17,7 @@ class WishListCollectionViewController: UICollectionViewController {
     let cdWorker = CoreDataWorker()
     var arrayWishes = NSArray()
     private let reuseIdentifier = "GameCell"
-    //let jParser : JsonParser = JsonParser.init()
+    let jParser : JsonParser = JsonParser.init()
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -59,7 +59,7 @@ class WishListCollectionViewController: UICollectionViewController {
         
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
-            //jParser.fetchGameData(selectedIndex.item)
+            jParser.fetchGameData(selectedIndex.item, arrayName: "wishlist")
             
             destinationViewController.game = gameManager.games[selectedIndex.item]
             
@@ -80,7 +80,7 @@ class WishListCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! WishListCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
         
         let game = arrayWishes.objectAtIndex(indexPath.row) as! Games
         

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="xkK-NE-Mwv">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="xkK-NE-Mwv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -234,6 +234,9 @@
                                                 <rect key="frame" x="1124" y="0.0" width="576" height="75"/>
                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                 <state key="normal" title="+ Lista de Desejos"/>
+                                                <connections>
+                                                    <action selector="addToWishList:" destination="dYm-YC-mKg" eventType="primaryActionTriggered" id="4h5-pD-1QR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -251,6 +254,7 @@
                     <connections>
                         <outlet property="backgroundImage" destination="MsH-xb-cZa" id="GaW-l0-0aY"/>
                         <outlet property="buttonWatch" destination="YZq-wv-4MS" id="etg-8d-b3I"/>
+                        <outlet property="buttonWishList" destination="Pdt-Zg-2aa" id="4Cl-9o-ZJz"/>
                         <outlet property="gameDesc" destination="bAi-Tb-Ing" id="mvG-lC-SxD"/>
                         <outlet property="gameGenre" destination="MlG-fO-wDa" id="S0x-MX-9k6"/>
                         <outlet property="gameName" destination="ozf-MF-YpF" id="ORJ-m0-yqh"/>
@@ -943,25 +947,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="mSo-1B-9RK">
-                                            <rect key="frame" x="58" y="8" width="300" height="340"/>
+                                            <rect key="frame" x="58" y="8" width="300" height="375"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rwK-pe-wsW">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rwK-pe-wsW">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="300" id="Gz9-ne-a2r"/>
                                                         <constraint firstAttribute="width" constant="300" id="eDa-qg-hKx"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQp-ra-L9B">
-                                                    <rect key="frame" x="0.0" y="340" width="300" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQp-ra-L9B">
+                                                    <rect key="frame" x="0.0" y="340" width="300" height="35"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="QQp-ra-L9B" firstAttribute="bottom" secondItem="rwK-pe-wsW" secondAttribute="bottom" constant="40" id="cXU-h5-YAh"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1050,10 +1051,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="525"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-jl-3ds">
-                                            <rect key="frame" x="58" y="8" width="300" height="340"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-jl-3ds">
+                                            <rect key="frame" x="58" y="8" width="300" height="375"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EIw-hR-w1y">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EIw-hR-w1y">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="kC0-Y7-DR5"/>
@@ -1061,15 +1062,12 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1R-14-z02">
-                                                    <rect key="frame" x="0.0" y="340" width="300" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="340" width="300" height="35"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="g1R-14-z02" firstAttribute="bottom" secondItem="EIw-hR-w1y" secondAttribute="bottom" constant="40" id="eyv-uh-Yyg"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1137,7 +1135,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="525"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="AAg-5m-aNK">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="AAg-5m-aNK">
                                             <rect key="frame" x="58" y="8" width="300" height="375"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pg4-Pt-wwK">
@@ -1147,7 +1145,7 @@
                                                         <constraint firstAttribute="height" constant="300" id="tGX-Zo-1gt"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWD-yF-s2c">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWD-yF-s2c">
                                                     <rect key="frame" x="0.0" y="340" width="300" height="35"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

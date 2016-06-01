@@ -131,11 +131,11 @@ private extension GameDetail{
         if let gameLet = game{
             if cdWorker.searchByID(gameLet.gameAPIstring) {
                 cdWorker.removeGameFromWishList(gameLet.gameAPIstring)
-                buttonWishList.titleLabel?.text = "+ Lista de Desejos"
+                buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
                 
             }else{
                 cdWorker.addGameToWishList(gameLet.gameAPIstring, name: gameLet.title, imageLink: gameLet.imageURL)
-                buttonWishList.titleLabel?.text = "- Lista de Desejos"
+                buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
             }
         }
     }
