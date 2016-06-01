@@ -24,11 +24,6 @@ struct Game{
     var imageURL: String
     
     init?(title: String, imageURL: String, gameString: String) {
-//        guard let title = dictionary["title"] as? String, descripion = dictionary["description"] as? String, genre = dictionary["genre"] as? String, imageURL = dictionary["imageURL"] as? String, numPlayer = dictionary["numPlayer"]as? String, nameDevelop = dictionary["nameDevelop"]as? String, namePlatform = dictionary["numPlatform"]as? String, releaseDate = dictionary["releaseDate"]as? String else {
-//            return nil
-//        }
-        
-        
         self.title = title
         self.description = "descricao"
         self.trailer = "Vazio"
@@ -46,7 +41,6 @@ struct Game{
         self.releaseDate = "Não informada"
         self.imageURL = imageURL
 
-        
     }
     mutating func setDetailInfo(desc: String, trailer: String, distri: [String], desenv: [String], platf: [String], generos: [String], rank: String, faixaetaria: String, releasedate: String){
         self.description = desc
@@ -60,6 +54,12 @@ struct Game{
         self.trailer = trailer
         
     
+    }
+    
+    mutating func setWishlistInfo(title: String, imageURL: String, gameString: String){
+        self.title = title
+        self.imageURL = imageURL
+        self.gameAPIstring = gameString
     }
 }
 

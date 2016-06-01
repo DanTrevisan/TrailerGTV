@@ -11,6 +11,10 @@ import UIKit
 class MoreDetail : UIViewController{
     
     var game:Game?
+    var exibewishList = false
+    var wishListIndex = Int()
+    let cdWorker = CoreDataWorker()
+
 
     @IBOutlet weak var gameName: UILabel!
     @IBOutlet weak var gameDescription: UILabel!
@@ -33,7 +37,14 @@ class MoreDetail : UIViewController{
     
     func loadInfos(){
         if let game = game{
-            gameName.text = game.title
+            if (exibewishList == true){
+                let wishlistArray = cdWorker.gamesFromWishList()
+                let gameWish = wishlistArray.objectAtIndex(wishListIndex) as? Games
+                gameName.text = gameWish?.gameName
+            }else{
+                gameName.text = game.title
+
+            }
             gameDescription.text = game.description
             gameGenres.text = game.genero.joinWithSeparator(", ")
             gamePlatforms.text = game.plataformas.joinWithSeparator(", ")

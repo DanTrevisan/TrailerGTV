@@ -50,14 +50,7 @@ class GameCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
-//        if NSData(contentsOfURL: NSURL(string: gameManager.games[indexPath.row].imageURL)!) != nil{
-//        ImageLoader.sharedLoader.imageForUrl(gameManager.games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
-//            cell.gameImage.image = image
-//        })
-//        }else{
-//            cell.gameImage.image = UIImage(named: "imgNaoDisp")
-//        }
-        
+
         ImageLoader.sharedLoader.imageForUrl(gameManager.games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
             cell.gameImage.image = image
          })   
@@ -78,6 +71,8 @@ class GameCollectionViewController: UICollectionViewController {
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
             jParser.fetchGameData(selectedIndex.item, arrayName: "games")
+            destinationViewController.exibewishList = false
+
             destinationViewController.game = gameManager.games[selectedIndex.item]
 
         }

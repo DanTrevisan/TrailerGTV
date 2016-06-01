@@ -25,6 +25,8 @@ class GameDetail: UIViewController {
     
     var game:Game?
     let cdWorker = CoreDataWorker()
+    var exibewishList = false
+    var wishListIndex = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,12 @@ class GameDetail: UIViewController {
             MoreDetail{
            // jParser.fetchGameData(selectedIndex.item)
             destinationViewController.game = game
+            if self.exibewishList == true {
+                destinationViewController.exibewishList = true
+                destinationViewController.wishListIndex = self.wishListIndex
+
+
+            }
         }
     }
 
@@ -62,13 +70,27 @@ private extension GameDetail{
     func setDetail(){
         if let game = game{
             
-            gameName.text = game.title
+            if exibewishList == false{
+                gameName.text = game.title
             
-            ImageLoader.sharedLoader.imageForUrl(game.imageURL, completionHandler:{(image: UIImage?, url: String) in
-                self.backgroundImage.image = image
-                self.imageView.image = self.backgroundImage.image
+                ImageLoader.sharedLoader.imageForUrl(game.imageURL, completionHandler:{(image: UIImage?, url: String) in
+                    self.backgroundImage.image = image
+                    self.imageView.image = self.backgroundImage.image
                 
-            })
+                })
+            }
+            else{
+                let wishlistArray = cdWorker.gamesFromWishList()
+                let gameWish = wishlistArray.objectAtIndex(wishListIndex) as? Games
+                gameName.text = gameWish?.gameName
+                
+                ImageLoader.sharedLoader.imageForUrl((gameWish?.imageLink)!, completionHandler:{(image: UIImage?, url: String) in
+                    self.backgroundImage.image = image
+                    self.imageView.image = self.backgroundImage.image
+                    
+                })
+                
+            }
             gameDesc.text = game.description
             namePlatform.text = game.plataformas.joinWithSeparator(", ")
             gameGenre.text = game.genero.joinWithSeparator(", ")
@@ -81,16 +103,24 @@ private extension GameDetail{
                 buttonWatch.hidden = false
             }
             
-            if cdWorker.searchByID(game.gameAPIstring)==false {
-                buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+            if( exibewishList == true){
+                let wishlistArray = cdWorker.gamesFromWishList()
+                let gameWish = wishlistArray.objectAtIndex(wishListIndex) as? Games
+                if cdWorker.searchByID((gameWish?.idGame)!)==false{
+                    buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+                }else{
+                    buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }
             }else{
-                buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                if cdWorker.searchByID(game.gameAPIstring)==false{
+                    buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+                }else{
+                    buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }
             }
             
-        }else{
-            
         }
-        
+
     }
     
     func setRatingImage(ratingString: String){
@@ -122,13 +152,27 @@ private extension GameDetail{
     
     @IBAction func addToWishList(sender: AnyObject) {
         if let gameLet = game{
-            if cdWorker.searchByID(gameLet.gameAPIstring) {
-                cdWorker.removeGameFromWishList(gameLet.gameAPIstring)
-                buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+            if exibewishList == false{
+                if cdWorker.searchByID(gameLet.gameAPIstring) {
+                    cdWorker.removeGameFromWishList(gameLet.gameAPIstring)
+                    buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
                 
-            }else{
-                cdWorker.addGameToWishList(gameLet.gameAPIstring, name: gameLet.title, imageLink: gameLet.imageURL)
-                buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }else{
+                    cdWorker.addGameToWishList(gameLet.gameAPIstring, name: gameLet.title, imageLink: gameLet.imageURL)
+                    buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }
+            }
+            else{
+                let wishlistArray = cdWorker.gamesFromWishList()
+                let gameWish = wishlistArray.objectAtIndex(wishListIndex) as? Games
+                if cdWorker.searchByID((gameWish?.idGame)!) {
+                    cdWorker.removeGameFromWishList((gameWish?.idGame)!)
+                    buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+                    
+                }else{
+                    cdWorker.addGameToWishList((gameWish?.idGame)!, name: (gameWish?.gameName)!, imageLink: (gameWish?.imageLink)!)
+                    buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }
             }
         }
     }
