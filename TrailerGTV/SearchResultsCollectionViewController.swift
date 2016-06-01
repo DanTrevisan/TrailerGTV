@@ -23,11 +23,6 @@ class SearchResultsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-//        var blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        backgroundImage.addSubview(blurEffectView)
         
         tabBarController?.tabBar.items![0].title = "Destaques"
         tabBarController?.tabBar.items![1].title = "Categorias"
@@ -55,7 +50,6 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         return 1
     }
 
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(gameManager.searchGames.count)
         return gameManager.searchGames.count
@@ -69,9 +63,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         })
         //cell.gameImage.image = UIImage(named: gameManager.games[indexPath.row].imageURL)
         cell.gameName.text = gameManager.searchGames[indexPath.row].title
-        
-        // Configure the cell
-        
+                
         return cell
 
     }
@@ -94,7 +86,6 @@ class SearchResultsCollectionViewController: UICollectionViewController {
             jParser.fetchGameData(selectedIndex.item, arrayName: "searchGames")
             
             destinationViewController.game = gameManager.searchGames[selectedIndex.item]
-            
         }
     }
 

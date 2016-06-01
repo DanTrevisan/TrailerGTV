@@ -24,8 +24,6 @@ class WishListCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        backgroundImage.addSubview(blurEffectView)
-        
         tabBarController?.tabBar.items![0].title = "Destaques"
         tabBarController?.tabBar.items![1].title = "Categorias"
         tabBarController?.tabBar.items![2].title = "Busca"
@@ -44,8 +42,6 @@ class WishListCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         self.collectionView?.reloadData()
     }
-    override func viewDidAppear(animated: Bool) {
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,7 +58,6 @@ class WishListCollectionViewController: UICollectionViewController {
             //jParser.fetchGameData(selectedIndex.item)
             
             destinationViewController.game = gameManager.games[selectedIndex.item]
-            
         }
     }
     
@@ -72,7 +67,6 @@ class WishListCollectionViewController: UICollectionViewController {
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -88,7 +82,6 @@ class WishListCollectionViewController: UICollectionViewController {
             cell.gameImage.image = image
         })
         cell.gameName.text = game.gameName! as String
-        // Configure the cell
         
         return cell
     }
@@ -126,12 +119,10 @@ class WishListCollectionViewController: UICollectionViewController {
     
 }
 extension WishListCollectionViewController: UICollectionViewDelegateFlowLayout {
-    // 1
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: 300, height: 525)
     }
     
-    // 3
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 90, bottom: 70, right: 90)
     }

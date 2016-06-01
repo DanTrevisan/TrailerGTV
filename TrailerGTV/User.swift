@@ -15,5 +15,4 @@ struct User {
         self.username = name
     }
 
-
 }

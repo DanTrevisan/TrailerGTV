@@ -14,8 +14,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,10 +22,7 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchField(sender: AnyObject) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-//        let searchResults: SearchResultsCollectionViewController = storyboard.instantiateViewControllerWithIdentifier("searchResults") as! SearchResultsCollectionViewController
-//        
-//        presentViewController(searchResults, animated: true, completion: nil)
+        
     }
 
     

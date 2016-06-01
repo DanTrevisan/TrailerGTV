@@ -29,13 +29,13 @@ class GameDetail: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setDetail()
-
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     private func playVideo(vidname: String) throws {
         
         print("URL: " + vidname + "?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7")
@@ -48,19 +48,14 @@ class GameDetail: UIViewController {
             player.play()
         }
     }
-    override func prepareForSegue(segue: UIStoryboardSegue,
-                                  sender: AnyObject?) {
-        // 1, 2
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationViewController = segue.destinationViewController as?
             MoreDetail{
            // jParser.fetchGameData(selectedIndex.item)
-            // 3
             destinationViewController.game = game
-            
         }
     }
-    
-    
 
 }
 private extension GameDetail{
@@ -92,10 +87,7 @@ private extension GameDetail{
                 buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
             }
             
-            
-        }
-            
-        else{
+        }else{
             
         }
         
@@ -113,9 +105,9 @@ private extension GameDetail{
             ratingImage.image = UIImage(named: "ratingsymbol_m")
         default:
             ratingImage.image = UIImage(named: "ratingsymbol_rp")
-
         }
     }
+    
     @IBAction func startTrailer(sender: AnyObject) {
         do {
             if let game = game{
@@ -127,12 +119,12 @@ private extension GameDetail{
             debugPrint("Generic error")
         }
     }
+    
     @IBAction func addToWishList(sender: AnyObject) {
         if let gameLet = game{
             if cdWorker.searchByID(gameLet.gameAPIstring) {
                 cdWorker.removeGameFromWishList(gameLet.gameAPIstring)
                 buttonWishList.titleLabel?.text = "+ Lista de Desejos"
-                
             }else{
                 cdWorker.addGameToWishList(gameLet.gameAPIstring, name: gameLet.title, imageLink: gameLet.imageURL)
                 buttonWishList.titleLabel?.text = "- Lista de Desejos"
