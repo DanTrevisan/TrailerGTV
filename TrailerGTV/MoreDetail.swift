@@ -24,7 +24,6 @@ class MoreDetail : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadInfos()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,26 +57,20 @@ class MoreDetail : UIViewController{
                             dateFormatter.dateFormat = "yyyy"
                             strDate = dateFormatter.dateFromString(game.releaseDate)
                         }
-                        
                     }
                     let segstring = convertDateFormater(strDate!)
                     gameReleaseDate.text = segstring
-                    
                 }
-                
-                
                 
             }
             else{
                 gameReleaseDate.text = game.releaseDate
             }
             setRatingImage(game.faixaetaria)
-            
-            
-            
         }
 
     }
+    
     func convertDateFormater(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .LongStyle
@@ -88,6 +81,7 @@ class MoreDetail : UIViewController{
         
         return timeStamp
     }
+    
     func setRatingImage(ratingString: String){
         switch ratingString {
         case "ESRB: E":

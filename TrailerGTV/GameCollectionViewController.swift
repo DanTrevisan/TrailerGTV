@@ -18,17 +18,12 @@ class GameCollectionViewController: UICollectionViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
 
     override func viewDidLoad() {
-//        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-//        var blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        backgroundImage.addSubview(blurEffectView)
         
         tabBarController?.tabBar.items![0].title = "Destaques"
         tabBarController?.tabBar.items![1].title = "Categorias"
         tabBarController?.tabBar.items![2].title = "Busca"
         tabBarController?.tabBar.items![3].title = "Lista de Desejos"
         
-        self.setupExemplos()
         super.viewDidLoad()
         jParser.getGames()
         backgroundImage.image = UIImage(named: gameManager.games[0].imageURL)
@@ -39,11 +34,6 @@ class GameCollectionViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func setupExemplos(){
-
-    }
-
     
 
     // MARK: UICollectionViewDataSource
@@ -72,9 +62,7 @@ class GameCollectionViewController: UICollectionViewController {
             cell.gameImage.image = image
          })   
         cell.gameName.text = gameManager.games[indexPath.row].title
-    
-        // Configure the cell
-    
+        
         return cell
     }
     
@@ -87,26 +75,21 @@ class GameCollectionViewController: UICollectionViewController {
     }
     override func prepareForSegue(segue: UIStoryboardSegue,
                                   sender: AnyObject?) {
-        // 1, 2
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
             jParser.fetchGameData(selectedIndex.item, arrayName: "games")
-            // 3
             destinationViewController.game = gameManager.games[selectedIndex.item]
 
         }
     }
 
-
 }
 
 extension GameCollectionViewController: UICollectionViewDelegateFlowLayout {
-    // 1
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: 300, height: 525)
     }
     
-    // 3
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 90, bottom: 70, right: 90)
     }

@@ -1119,7 +1119,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="V2Z-yt-8b7">
                             <size key="itemSize" width="311" height="529"/>
-                            <size key="headerReferenceSize" width="50" height="104"/>
+                            <size key="headerReferenceSize" width="50" height="150"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
@@ -1129,7 +1129,7 @@
                         </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GameCell" id="6T5-Le-hAA" customClass="GameCollectionViewCell" customModule="TrailerGTV" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="249" width="300" height="525"/>
+                                <rect key="frame" x="0.0" y="295" width="300" height="525"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="525"/>
@@ -1168,21 +1168,33 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="UeF-dm-84O">
-                            <rect key="frame" x="0.0" y="145" width="1920" height="104"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchReusableView" id="UeF-dm-84O" customClass="SearchCollectionReusableView" customModule="TrailerGTV" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="145" width="1920" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olf-V5-rbd">
-                                    <rect key="frame" x="98" y="8" width="118" height="58"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                    <rect key="frame" x="98" y="8" width="180" height="91"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="073-lK-Ebz">
+                                    <rect key="frame" x="1704" y="34" width="118" height="58"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="olf-V5-rbd" firstAttribute="top" secondItem="UeF-dm-84O" secondAttribute="topMargin" id="EDl-e7-Fd6"/>
                                 <constraint firstItem="olf-V5-rbd" firstAttribute="leading" secondItem="UeF-dm-84O" secondAttribute="leadingMargin" constant="90" id="Ja3-41-Ed1"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="073-lK-Ebz" secondAttribute="trailing" constant="90" id="jry-PE-dSS"/>
+                                <constraint firstItem="073-lK-Ebz" firstAttribute="baseline" secondItem="olf-V5-rbd" secondAttribute="baseline" id="rcX-NB-Bvs"/>
                             </constraints>
+                            <connections>
+                                <outlet property="numbersLabel" destination="073-lK-Ebz" id="Rbb-m9-D1k"/>
+                                <outlet property="searchLabel" destination="olf-V5-rbd" id="HWd-3G-ISW"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="1jz-Rw-JJm" id="9qn-Ds-diI"/>
@@ -1203,6 +1215,6 @@
         <image name="ratingsymbol_rp" width="30" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I5o-MF-3Va"/>
+        <segue reference="V9j-5Q-yb7"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -85,7 +85,6 @@ class JsonParser{
         }
         else {
              stringAPI = gameManager.searchGames[gameindex].gameAPIstring
-            print(stringAPI)
         }
         
         //let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
@@ -212,47 +211,37 @@ class JsonParser{
     
     func searchGames(searchString: String){
         let jsonData = NSData(contentsOfURL: NSURL.init(string: "http://www.giantbomb.com/api/search?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&format=json&resources=game&query=" + searchString)! )
-//            do {
-//                let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
-                do {
-                    gameManager.searchGames.removeAll()
-                    let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                    if let dict = jsonResult as? [String: AnyObject] {
-                        if let results = dict["results"] as? [AnyObject] {
-                            print(results.count)
-                            for dict2 in results {
+            do {
+                gameManager.searchGames.removeAll()
+                let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                if let dict = jsonResult as? [String: AnyObject] {
+                    if let results = dict["results"] as? [AnyObject] {
+                        print(results.count)
+                        for dict2 in results {
                                 
-                                //Dá pra filtrar alguma coisa extra aqui
-                                let id = dict2["name"] as? String
+                            //Dá pra filtrar alguma coisa extra aqui
+                            let id = dict2["name"] as? String
                                 
-                                //Pega a url da Api do jogo, para conseguir os detalhes depois
-                                let stringApi = dict2["api_detail_url"] as? String
-                                let ranges = Range(stringApi!.startIndex.advancedBy(34)..<stringApi!.endIndex.advancedBy(-1))
+                            //Pega a url da Api do jogo, para conseguir os detalhes depois
+                            let stringApi = dict2["api_detail_url"] as? String
+                            let ranges = Range(stringApi!.startIndex.advancedBy(34)..<stringApi!.endIndex.advancedBy(-1))
+                            
+                            let stringGameID = stringApi?.substringWithRange(ranges)
                                 
-                                let stringGameID = stringApi?.substringWithRange(ranges)
-                                
-                                let url = dict2["image"]!!["super_url"] as? String
-                                if url != nil{
-                                    let game1:Game = Game.init(title: id! as String,imageURL: url!, gameString: stringGameID!)!
+                            let url = dict2["image"]!!["super_url"] as? String
+                            if url != nil{
+                                let game1:Game = Game.init(title: id! as String,imageURL: url!, gameString: stringGameID!)!
                                     gameManager.searchGames.append(game1)
-                                }
-                                
-                                
-                                
-                                
                             }
+                                
                         }
                     }
-                    else{
-                        print("Parameter not found!")
-                    }
+                }
+                else{
+                    print("Parameter not found!")
+                }
                     
-                } catch {}
-//            } catch {}
-//        }
-//        else{
-//            print("File/path not found!")
-//        }
+            } catch {}
     }
 
     
