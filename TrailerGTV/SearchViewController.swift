@@ -11,9 +11,16 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var txtSearch: UITextField!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicatorView.hidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +29,8 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchField(sender: AnyObject) {
-        
+        activityIndicatorView.hidden = false
+        activityIndicatorView.startAnimating()
     }
 
     

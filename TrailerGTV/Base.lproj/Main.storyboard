@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="xkK-NE-Mwv">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="xkK-NE-Mwv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -875,11 +875,23 @@
                                     <segue destination="1jz-Rw-JJm" kind="show" identifier="searchSegue" id="ldc-Z8-24s"/>
                                 </connections>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9Dz-pC-wDz">
+                                <rect key="frame" x="910" y="490" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4Pv-kG-acH"/>
+                                    <constraint firstAttribute="height" constant="100" id="ZNV-VO-Kco"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="9Dz-pC-wDz" firstAttribute="centerX" secondItem="RyP-0G-aIg" secondAttribute="centerX" id="2FK-QU-Tie"/>
+                            <constraint firstItem="9Dz-pC-wDz" firstAttribute="centerY" secondItem="RyP-0G-aIg" secondAttribute="centerY" id="zZd-sb-yAM"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Busca" id="VVX-Au-Xek"/>
                     <navigationItem key="navigationItem" id="Wsv-XU-cEs"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="9Dz-pC-wDz" id="rwb-uq-HRP"/>
                         <outlet property="txtSearch" destination="SsO-VW-dK0" id="dIJ-ZH-85x"/>
                     </connections>
                 </viewController>
@@ -1051,7 +1063,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="525"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-jl-3ds">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-jl-3ds">
                                             <rect key="frame" x="58" y="8" width="300" height="375"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EIw-hR-w1y">
@@ -1061,7 +1073,7 @@
                                                         <constraint firstAttribute="height" constant="300" id="ptC-Qi-aK9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1R-14-z02">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1R-14-z02">
                                                     <rect key="frame" x="0.0" y="340" width="300" height="35"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1181,7 +1193,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="073-lK-Ebz">
                                     <rect key="frame" x="1704" y="34" width="118" height="58"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
