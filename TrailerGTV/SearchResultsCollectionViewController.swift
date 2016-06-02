@@ -18,6 +18,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
     private let reuseIdentifier = "GameCell"
     let jParser : JsonParser = JsonParser.init()
     var search: NSString = ""
+    var searchText: NSString = ""
     var number: NSString = ""
 
     @IBOutlet weak var backgroundImage: UIImageView!
@@ -56,7 +57,7 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         switch kind {
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "searchReusableView", forIndexPath: indexPath) as! SearchCollectionReusableView
-            headerView.searchLabel.text = "Sua busca: " + (search as String)
+            headerView.searchLabel.text = "Sua busca: " + (searchText as String)
             headerView.numbersLabel.text = (number as String) + " resultados"
             return headerView
             
