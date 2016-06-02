@@ -33,7 +33,10 @@ class SearchViewController: UIViewController {
         
         if (segue.identifier == "searchSegue") {
             if let destinationViewController: SearchResultsCollectionViewController = segue.destinationViewController as? SearchResultsCollectionViewController {
-                destinationViewController.search = txtSearch.text!
+                let searchArray = txtSearch.text!.componentsSeparatedByString(" ")
+                let searchString = searchArray.joinWithSeparator("%20")
+                destinationViewController.search = searchString
+                destinationViewController.searchText = txtSearch.text!
             }
         }
         
