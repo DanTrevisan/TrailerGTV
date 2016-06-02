@@ -889,8 +889,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Que jogo você procura?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SsO-VW-dK0">
-                                <rect key="frame" x="208" y="517" width="1505" height="46"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Faça uma busca pelo nome do jogo desejado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SsO-VW-dK0">
+                                <rect key="frame" x="210" y="505" width="1500" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1500" id="SLI-2F-WCw"/>
+                                    <constraint firstAttribute="height" constant="70" id="ziz-Ra-piF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -905,10 +909,20 @@
                                     <constraint firstAttribute="height" constant="100" id="ZNV-VO-Kco"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Procurando algum jogo?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hw-y0-yu3">
+                                <rect key="frame" x="650" y="336" width="621" height="69"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.18823529410000001" green="0.20784313730000001" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9Dz-pC-wDz" firstAttribute="centerX" secondItem="RyP-0G-aIg" secondAttribute="centerX" id="2FK-QU-Tie"/>
+                            <constraint firstItem="SsO-VW-dK0" firstAttribute="top" secondItem="9hw-y0-yu3" secondAttribute="bottom" constant="100" id="6aH-Z1-Jak"/>
+                            <constraint firstItem="SsO-VW-dK0" firstAttribute="centerX" secondItem="RyP-0G-aIg" secondAttribute="centerX" id="Dqv-zK-0VB"/>
+                            <constraint firstItem="9hw-y0-yu3" firstAttribute="centerX" secondItem="RyP-0G-aIg" secondAttribute="centerX" id="VNH-XC-i0E"/>
+                            <constraint firstItem="SsO-VW-dK0" firstAttribute="centerY" secondItem="RyP-0G-aIg" secondAttribute="centerY" id="oj3-Ko-Pab"/>
                             <constraint firstItem="9Dz-pC-wDz" firstAttribute="centerY" secondItem="RyP-0G-aIg" secondAttribute="centerY" id="zZd-sb-yAM"/>
                         </constraints>
                     </view>
