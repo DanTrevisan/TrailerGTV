@@ -169,12 +169,13 @@ private extension GameDetail{
                     cdWorker.removeGameFromWishList((gameWish?.idGame)!)
                     buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
                     
-                }else{
+                    navigationController!.popViewControllerAnimated(true)
+
+                }else {
                     cdWorker.addGameToWishList((gameWish?.idGame)!, name: (gameWish?.gameName)!, imageLink: (gameWish?.imageLink)!)
                     buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                    }
                 }
             }
-        }
     }
-    
 }
