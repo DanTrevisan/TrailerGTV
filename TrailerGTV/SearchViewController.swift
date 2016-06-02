@@ -18,6 +18,10 @@ class SearchViewController: UIViewController {
         activityIndicatorView.hidden = true
     }
     
+    override func viewWillAppear(animated: Bool) {
+        activityIndicatorView.hidden = true
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         activityIndicatorView.stopAnimating()
         activityIndicatorView.hidden = true
