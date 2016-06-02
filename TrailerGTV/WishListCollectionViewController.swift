@@ -56,6 +56,8 @@ class WishListCollectionViewController: UICollectionViewController {
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
             jParser.fetchGameData(selectedIndex.item, arrayName: "wishlist")
+            destinationViewController.exibewishList = true
+            destinationViewController.wishListIndex = selectedIndex.item
             
             destinationViewController.game = gameManager.games[selectedIndex.item]
         }

@@ -106,6 +106,8 @@ class SearchResultsCollectionViewController: UICollectionViewController {
         if let destinationViewController = segue.destinationViewController as?
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
             jParser.fetchGameData(selectedIndex.item, arrayName: "searchGames")
+            destinationViewController.exibewishList = true
+
             
             destinationViewController.game = gameManager.searchGames[selectedIndex.item]
         }

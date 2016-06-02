@@ -80,6 +80,7 @@ class JsonParser{
             let wishlistArray = cdWorker.gamesFromWishList()
             let gameWish = wishlistArray.objectAtIndex(gameindex) as? Games
             
+            
             //print(wishlistArray.objectAtIndex(gameindex))
             stringAPI = (gameWish?.idGame)!
         }
@@ -197,7 +198,7 @@ class JsonParser{
                 if (arrayName == "games") {
                     gameManager.games[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
                 } else if (arrayName == "wishlist"){
-                    
+
                     gameManager.games[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
                 }else {
                     gameManager.searchGames[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
