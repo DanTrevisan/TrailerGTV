@@ -75,6 +75,7 @@ class CoreDataWorker {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+        self.save(managedContext)
         
     }
     

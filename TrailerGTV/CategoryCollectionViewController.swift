@@ -10,11 +10,17 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
+enum CategoryType {
+    case DS3, PC, PS4, PSVita, XBoxOne, WiiU, AcaoAventura, BeatEm, Cartas, Corrida, Esportes, Estrategia, Ritmo, Luta, MMORPG, Plataforma, Puzzle, Shooter, Simuladores, FPS
+    
+}
+
 class CategoryCollectionViewController: UICollectionViewController {
     
     var gameManager = GameService.sharedInstance
     private let reuseIdentifier = "GameCell"
     let jParser : JsonParser = JsonParser.init()
+    var games = [Game]()
     
     @IBOutlet weak var backgroundImage: UIImageView!
 
@@ -40,51 +46,46 @@ class CategoryCollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDataSource
-
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: self.view.bounds.width/4, height: 525);
+    }
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return games.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! GameCollectionViewCell
         
-        ImageLoader.sharedLoader.imageForUrl(gameManager.games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
+        ImageLoader.sharedLoader.imageForUrl(games[indexPath.row].imageURL, completionHandler:{(image: UIImage?, url: String) in
             cell.gameImage.image = image
         })
-        //cell.gameImage.image = UIImage(named: gameManager.games[indexPath.row].imageURL)
-        cell.gameName.text = gameManager.games[indexPath.row].title
-        
+        cell.gameName.text = games[indexPath.row].title
         return cell
 
     }
     
-    // MARK: - Navigation
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue,
-//                                  sender: AnyObject?) {
-//        // 1, 2
-//        if let destinationViewController = segue.destinationViewController as?
-//            GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
-//            jParser.fetchGameData(selectedIndex.item)
-//            // 3
-//            destinationViewController.game = gameManager.games[selectedIndex.item]
-//            
-//        }
-//    }
+    func updateGameData(categoria: CategoryType){
+            games = jParser.showGameByPlatform(categoria)
+            self.collectionView?.reloadData()
+
+        
+    }
 
 }
 
 extension CategoryCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: 300, height: 525)
-    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        return CGSize(width: 300, height: 525)
+//    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 90, bottom: 70, right: 90)
     }
+    
 }

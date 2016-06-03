@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class JsonParser{
     var gameManager = GameService.sharedInstance
     let cdWorker = CoreDataWorker()
@@ -271,8 +272,60 @@ class JsonParser{
         return vidURL
        
     }
+    func showGameByPlatform(plataforma: CategoryType) -> [Game] {
+        var stringBusca = String()
+        switch plataforma {
+        case .DS3:
+            stringBusca = "http://www.giantbomb.com/api/games/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&sort=date_last_updated:desc&format=json&filter=platforms:117"
+        case .PC:
+            stringBusca = "http://www.giantbomb.com/api/games/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&sort=date_last_updated:desc&format=json&filter=platforms:94"
+        case .PS4:
+            stringBusca = "http://www.giantbomb.com/api/games/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&sort=date_last_updated:desc&format=json&filter=platforms:146"
+        case .PSVita:
+            stringBusca = "http://www.giantbomb.com/api/games/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&sort=date_last_updated:desc&format=json&filter=platforms:129"
+        case .XBoxOne:
+            stringBusca = "http://www.giantbomb.com/api/games/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&sort=date_last_updated:desc&format=json&filter=platforms:145"
+        case .WiiU:
+            stringBusca = "http://www.giantbomb.com/api/games/?api_key=ac905e94dc4133129b73939d35fa7a4f1b3e94c7&sort=date_last_updated:desc&format=json&filter=platforms:139"
+        default:
+            break
+        }
+        let jsonData = NSData(contentsOfURL: NSURL.init(string: stringBusca)! )
+        do {
+
+            gameManager.categoryGames.removeAll()
+            let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            if let dict = jsonResult as? [String: AnyObject] {
+                if let results = dict["results"] as? [AnyObject] {
+                    print(results.count)
+                    for dict2 in results {
+                        
+                        //Dá pra filtrar alguma coisa extra aqui
+                        let id = dict2["name"] as? String
+                        
+                        //Pega a url da Api do jogo, para conseguir os detalhes depois
+                        let stringApi = dict2["api_detail_url"] as? String
+                        let ranges = Range(stringApi!.startIndex.advancedBy(34)..<stringApi!.endIndex.advancedBy(-1))
+                        
+                        let stringGameID = stringApi?.substringWithRange(ranges)
+                        
+                        let url = dict2["image"]!!["super_url"] as? String
+                        if url != nil{
+                            let game1:Game = Game.init(title: id! as String,imageURL: url!, gameString: stringGameID!)!
+                            gameManager.categoryGames.append(game1)
+                        }
+                        
+                    }
+                }
+            }
+        }catch {}
+        return gameManager.categoryGames
+        
+
+    }
+}
 
     
-}
+
 
 
