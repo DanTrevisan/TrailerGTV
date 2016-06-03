@@ -17,6 +17,7 @@ enum CategoryType {
 
 class CategoryCollectionViewController: UICollectionViewController {
     
+    private let detailSegueIdentifier = "categoriaDetail"
     var gameManager = GameService.sharedInstance
     private let reuseIdentifier = "GameCell"
     let jParser : JsonParser = JsonParser.init()
@@ -38,6 +39,9 @@ class CategoryCollectionViewController: UICollectionViewController {
         // Register cell classes
 //        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
+    }
+    override func viewWillAppear(animated: Bool) {
+        self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +80,23 @@ class CategoryCollectionViewController: UICollectionViewController {
 
         
     }
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let destinationViewController = segue.destinationViewController as?
+            GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
+            jParser.fetchGameData(selectedIndex.item, arrayName: "categoryGames")
+            destinationViewController.exibewishList = false
+            destinationViewController.game = gameManager.categoryGames[selectedIndex.item]
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
+
+    }
+
 
 }
 

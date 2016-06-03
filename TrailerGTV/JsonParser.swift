@@ -84,6 +84,8 @@ class JsonParser{
             
             //print(wishlistArray.objectAtIndex(gameindex))
             stringAPI = (gameWish?.idGame)!
+        }else if (arrayName=="categoryGames"){
+            stringAPI = gameManager.categoryGames[gameindex].gameAPIstring
         }
         else {
              stringAPI = gameManager.searchGames[gameindex].gameAPIstring
@@ -111,9 +113,11 @@ class JsonParser{
                 //MARK: GENEROS (PS:Filtrar depois os gêneros indesejados)
                 let generos = dict2["genres"] as? NSArray
                 var generosArray = [String]()
+                if generos != nil {
                 for dictionaries in generos!{
                     let generosName = dictionaries["name"] as? String
                     generosArray.append(generosName!)
+                }
                 }
                 
                 //PUBLISHERS
@@ -201,6 +205,9 @@ class JsonParser{
                 } else if (arrayName == "wishlist"){
 
                     gameManager.games[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
+                }else if(arrayName == "categoryGames"){
+                    gameManager.categoryGames[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
+                    
                 }else {
                     gameManager.searchGames[gameindex].setDetailInfo  (desc!, trailer: gameTrailerString, distri: publishersArray, desenv: developersArray, platf: platformArray, generos: generosArray, rank: "teste", faixaetaria: ratingString, releasedate: releaseDate)
                 }
