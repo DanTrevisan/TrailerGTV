@@ -166,6 +166,8 @@ private extension GameDetail{
                 let wishlistArray = cdWorker.gamesFromWishList()
                 let gameWish = wishlistArray.objectAtIndex(wishListIndex) as? Games
                 if cdWorker.searchByID((gameWish?.idGame)!) {
+                    print("apistring: " + (gameWish?.idGame)!)
+
                     cdWorker.removeGameFromWishList((gameWish?.idGame)!)
                     buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
                     

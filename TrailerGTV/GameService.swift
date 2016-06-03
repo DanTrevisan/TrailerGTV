@@ -13,6 +13,7 @@ class GameService: NSObject {
 
     var games = [Game]()
     var searchGames = [Game]()
+    var categoryGames = [Game]()
     
     private override init() {
     }
