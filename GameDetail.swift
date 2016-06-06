@@ -138,6 +138,23 @@ private extension GameDetail{
             ratingImage.image = UIImage(named: "ratingsymbol_rp")
         }
     }
+    override internal func viewWillAppear(animated: Bool) {
+        if( exibewishList == true){
+            let wishlistArray = cdWorker.gamesFromWishList()
+            let gameWish = wishlistArray.objectAtIndex(wishListIndex) as? Games
+            if cdWorker.searchByID((gameWish?.idGame)!)==false{
+                buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+            }else{
+                buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+            }
+        }else{
+            if cdWorker.searchByID(game!.gameAPIstring)==false{
+                buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+            }else{
+                buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+            }
+        }
+    }
     
     @IBAction func startTrailer(sender: AnyObject) {
         do {

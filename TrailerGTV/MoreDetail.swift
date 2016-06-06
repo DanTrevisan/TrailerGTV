@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoreDetail : UIViewController{
+class MoreDetail : UIViewController, UIGestureRecognizerDelegate, UISplitViewControllerDelegate{
     
     var game:Game?
     var exibewishList = false
@@ -24,10 +24,14 @@ class MoreDetail : UIViewController{
     @IBOutlet weak var gameDeveloper: UILabel!
     @IBOutlet weak var gameReleaseDate: UILabel!
     @IBOutlet weak var gameRating: UIImageView!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet weak var buttonWishList: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadInfos()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,6 +82,22 @@ class MoreDetail : UIViewController{
                 gameReleaseDate.text = game.releaseDate
             }
             setRatingImage(game.faixaetaria)
+            
+            if( exibewishList == true){
+                let wishlistArray = cdWorker.gamesFromWishList()
+                let gameWish = wishlistArray.objectAtIndex(wishListIndex) as? Games
+                if cdWorker.searchByID((gameWish?.idGame)!)==false{
+                    buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+                }else{
+                    buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }
+            }else{
+                if cdWorker.searchByID(game.gameAPIstring)==false{
+                    buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+                }else{
+                    buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }
+            }
         }
 
     }
@@ -109,8 +129,48 @@ class MoreDetail : UIViewController{
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        self.splitViewController?.preferredDisplayMode = .PrimaryHidden
+    @IBAction func tapGestureAction(sender: UITapGestureRecognizer) {
+        if sender.state == .Recognized {
+            let pressType = UIPressType(rawValue:
+                sender.allowedPressTypes.first!.integerValue)!
+            if (pressType == UIPressType.Menu){
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
+
+
     }
+    
+    @IBAction func addWishlist(sender: AnyObject) {
+        if let gameLet = game{
+            if exibewishList == false{
+                if cdWorker.searchByID(gameLet.gameAPIstring) {
+                    cdWorker.removeGameFromWishList(gameLet.gameAPIstring)
+                    buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+                    
+                }else{
+                    cdWorker.addGameToWishList(gameLet.gameAPIstring, name: gameLet.title, imageLink: gameLet.imageURL)
+                    buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }
+            }
+            else{
+                let wishlistArray = cdWorker.gamesFromWishList()
+                let gameWish = wishlistArray.objectAtIndex(wishListIndex) as? Games
+                if cdWorker.searchByID((gameWish?.idGame)!) {
+                    print("apistring: " + (gameWish?.idGame)!)
+                    
+                    cdWorker.removeGameFromWishList((gameWish?.idGame)!)
+                    buttonWishList.setTitle("+ Lista de Desejos", forState: UIControlState.Normal)
+                    
+                    navigationController!.popViewControllerAnimated(true)
+                    
+                }else {
+                    cdWorker.addGameToWishList((gameWish?.idGame)!, name: (gameWish?.gameName)!, imageLink: (gameWish?.imageLink)!)
+                    buttonWishList.setTitle("- Lista de Desejos", forState: UIControlState.Normal)
+                }
+            }
+        }
+    }
+    
     
 }

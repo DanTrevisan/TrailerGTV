@@ -41,7 +41,7 @@ class CategoryCollectionViewController: UICollectionViewController {
 
     }
     override func viewWillAppear(animated: Bool) {
-        //self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
     }
 
     override func didReceiveMemoryWarning() {

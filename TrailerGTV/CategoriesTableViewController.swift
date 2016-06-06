@@ -22,9 +22,9 @@ class CategoriesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let detailNav = splitViewController?.viewControllers.last as? UINavigationController {
-            detailNav.popToRootViewControllerAnimated(true)
-        }
+//        if let detailNav = splitViewController?.viewControllers.last as? UINavigationController {
+//            detailNav.popToRootViewControllerAnimated(true)
+//        }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let secondNav = splitViewController?.viewControllers.last as? UINavigationController
         let topview = secondNav?.topViewController as? CategoryCollectionViewController
