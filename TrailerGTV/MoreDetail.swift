@@ -108,4 +108,9 @@ class MoreDetail : UIViewController{
             
         }
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.splitViewController?.preferredDisplayMode = .PrimaryHidden
+    }
+    
 }

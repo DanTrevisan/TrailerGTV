@@ -107,8 +107,6 @@ class SearchResultsCollectionViewController: UICollectionViewController {
             GameDetail, selectedIndex = collectionView?.indexPathsForSelectedItems()?.first {
             jParser.fetchGameData(selectedIndex.item, arrayName: "searchGames")
             destinationViewController.exibewishList = false
-
-            
             destinationViewController.game = gameManager.searchGames[selectedIndex.item]
         }
     }

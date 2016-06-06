@@ -41,32 +41,6 @@ class CategoriesTableViewController: UITableViewController {
             topview?.updateGameData(CategoryType.XBoxOne)
         case 5:
             topview?.updateGameData(CategoryType.WiiU)
-//        case 6:
-//            topview?.updateGameData(CategoryType.AcaoAventura)
-//        case 7:
-//            topview?.updateGameData(CategoryType.BeatEm)
-//        case 8:
-//            topview?.updateGameData(CategoryType.Cartas)
-//        case 9:
-//            topview?.updateGameData(CategoryType.Corrida)
-//        case 10:
-//            topview?.updateGameData(CategoryType.Esportes)
-//        case 11:
-//            topview?.updateGameData(CategoryType.Estrategia)
-//        case 12:
-//            topview?.updateGameData(CategoryType.Ritmo)
-//        case 13:
-//            topview?.updateGameData(CategoryType.Luta)
-//        case 14:
-//            topview?.updateGameData(CategoryType.MMORPG)
-//        case 15:
-//            topview?.updateGameData(CategoryType.Plataforma)
-//        case 16:
-//            topview?.updateGameData(CategoryType.Shooter)
-//        case 17:
-//            topview?.updateGameData(CategoryType.Simuladores)
-//        case 18:
-//            topview?.updateGameData(CategoryType.FPS)
         default:
             print("nya")
     
