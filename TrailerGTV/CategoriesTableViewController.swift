@@ -12,14 +12,13 @@ class CategoriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    override func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-    }
+    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        if let detailNav = splitViewController?.viewControllers.last as? UINavigationController {
@@ -43,9 +42,21 @@ class CategoriesTableViewController: UITableViewController {
             topview?.updateGameData(CategoryType.WiiU)
         default:
             print("nya")
-    
         }
 
+    }
+    
+    override func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        
+        if let prevIndexPath = context.previouslyFocusedIndexPath {
+            let prevCell = tableView.cellForRowAtIndexPath(prevIndexPath)
+            prevCell?.backgroundColor = UIColor.clearColor()
+        }
+        
+        if let nextIndexPath = context.nextFocusedIndexPath {
+            let nextCell = tableView.cellForRowAtIndexPath(nextIndexPath)
+            nextCell?.backgroundColor = UIColor.grayColor()
+        }
     }
 
 

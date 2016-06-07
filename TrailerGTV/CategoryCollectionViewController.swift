@@ -11,11 +11,13 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 enum CategoryType {
-    case DS3, PC, PS4, PSVita, XBoxOne, WiiU, AcaoAventura, BeatEm, Cartas, Corrida, Esportes, Estrategia, Ritmo, Luta, MMORPG, Plataforma, Puzzle, Shooter, Simuladores, FPS
-    
+    case DS3, PC, PS4, PSVita, XBoxOne, WiiU, None
+    //AcaoAventura, BeatEm, Cartas, Corrida, Esportes, Estrategia, Ritmo, Luta, MMORPG, Plataforma, Puzzle, Shooter, Simuladores, FPS
 }
 
 class CategoryCollectionViewController: UICollectionViewController {
+    
+    var teste = CategoryType.None
     
     private let detailSegueIdentifier = "categoriaDetail"
     var gameManager = GameService.sharedInstance
@@ -29,7 +31,7 @@ class CategoryCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         tabBarController?.tabBar.items![0].title = "Destaques"
-        tabBarController?.tabBar.items![1].title = "Categorias"
+        tabBarController?.tabBar.items![1].title = "Plataformas"
         tabBarController?.tabBar.items![2].title = "Busca"
         tabBarController?.tabBar.items![3].title = "Lista de Desejos"
         
@@ -51,9 +53,41 @@ class CategoryCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
     
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "categoryReusableView", forIndexPath: indexPath) as! CategoriesCollectionReusableView
+            
+            switch teste {
+            case .DS3:
+                headerView.categoryLabel.text = "Plataforma: DS3"
+            case .PC:
+                headerView.categoryLabel.text = "Plataforma: PC"
+            case .PS4:
+                headerView.categoryLabel.text = "Plataforma: PS4"
+            case .PSVita:
+                headerView.categoryLabel.text = "Plataforma: PSVita"
+            case .XBoxOne:
+                headerView.categoryLabel.text = "Plataforma: XBoxOne"
+            case .WiiU:
+                headerView.categoryLabel.text = "Plataforma: WiiU"
+            default:
+                headerView.categoryLabel.text = "Selecione uma Plataforma"
+            }
+            
+            return headerView
+            
+        default:
+            assert(false, "Unexpected element kind")
+        }
+        
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: self.view.bounds.width/4, height: 525);
     }
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -77,6 +111,8 @@ class CategoryCollectionViewController: UICollectionViewController {
     func updateGameData(categoria: CategoryType){
             games = jParser.showGameByPlatform(categoria)
             self.collectionView?.reloadData()
+            teste = categoria
+        
 
         
     }

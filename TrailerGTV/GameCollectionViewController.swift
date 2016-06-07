@@ -20,7 +20,7 @@ class GameCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         
         tabBarController?.tabBar.items![0].title = "Destaques"
-        tabBarController?.tabBar.items![1].title = "Categorias"
+        tabBarController?.tabBar.items![1].title = "Plataformas"
         tabBarController?.tabBar.items![2].title = "Busca"
         tabBarController?.tabBar.items![3].title = "Lista de Desejos"
         
